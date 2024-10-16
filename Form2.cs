@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
+using static System.Convert;
 using System.Windows.Forms;
 
 namespace Gestión_Museo

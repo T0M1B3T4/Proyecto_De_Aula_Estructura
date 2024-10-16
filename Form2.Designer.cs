@@ -122,6 +122,7 @@
             this.ClientSize = new System.Drawing.Size(982, 478);
             this.Controls.Add(this.grpInformacion);
             this.Name = "FrmPersonal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personal Museo";
             this.Load += new System.EventHandler(this.FrmPersonal_Load);
             this.grpInformacion.ResumeLayout(false);
