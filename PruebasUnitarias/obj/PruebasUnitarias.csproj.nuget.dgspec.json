@@ -1,0 +1,105 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\PruebasUnitarias\\PruebasUnitarias.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\Gestión Museo.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\Gestión Museo.csproj",
+        "projectName": "Gestión Museo",
+        "projectPath": "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\Gestión Museo.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\PruebasUnitarias\\PruebasUnitarias.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\PruebasUnitarias\\PruebasUnitarias.csproj",
+        "projectName": "PruebasUnitarias",
+        "projectPath": "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\PruebasUnitarias\\PruebasUnitarias.csproj",
+        "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\PruebasUnitarias\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Samuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\Gestión Museo.csproj": {
+                "projectPath": "C:\\Users\\Samuel\\Downloads\\Proyecto_De_Aula_Estructura-main\\Gestión Museo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
