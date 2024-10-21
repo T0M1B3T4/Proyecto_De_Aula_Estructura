@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Gesti髇_Museo;
+using Gesti贸n_Museo;
 
 namespace PruebasUnitarias
 {
@@ -9,43 +9,30 @@ namespace PruebasUnitarias
         [TestMethod]
         public void TestValidarUsuario_UsuarioValido()
         {
+            var museo = new FrmLogin.Museo();// se especifica que vamos a usar y a trabajar en FrmLogin que es donde estan los procesos, tambien use la variable "var" porque vamos usar tanto numeros como cadenas de texto
+            bool esValido = museo.ValidarUsuario("DARIO BORJA GAMBOA", "202110395");//a qui simplemente usamos la bandera que puse en codigo del form para confirmar si es un usuario valido y lo valido con la informaci贸n
 
-            var museo = new FrmLogin.Museo();
-
-
-            bool esValido = museo.ValidarUsuario("DARIO BORJA GAMBOA", "202110395");
-
-
-            Assert.IsTrue(esValido);  // El usuario y la contrase馻 son v醠idos
+            Assert.IsTrue(esValido);// y aqui ya simplemente da si es valido o no 
         }
 
         [TestMethod]
         public void TestValidarUsuario_UsuarioInvalido()
         {
-            // Arrange
             var museo = new FrmLogin.Museo();
-
-            // Act
-            bool esValido = museo.ValidarUsuario("LO QUE SEA", "123456");
-
-            // Assert
-            Assert.IsFalse(esValido);  // El usuario no existe
+            bool esValido = museo.ValidarUsuario("LO QUE SEA", "123456");// es la validadaci贸n por si es otro usuario
+            Assert.IsFalse(esValido);  // ya aqui informa que el usuario no esta en el diccionario para que el proceso en el codigo de form si funciona
         }
 
         [TestMethod]
         public void TestValidarUsuario_ContrasenaIncorrecta()
         {
-            // Arrange
+            
             var museo = new FrmLogin.Museo();
-
-            // Act
-            bool esValido = museo.ValidarUsuario("DARIO BORJA GAMBOA", "incorrecta");
-
-            // Assert
-            Assert.IsFalse(esValido);  // El usuario es v醠ido, pero la contrase馻 es incorrecta
+            bool esValido = museo.ValidarUsuario("DARIO BORJA GAMBOA", "incorrecta");// es la validadaci贸n por si es otro usuario
+            Assert.IsFalse(esValido);  // ya aqui informa que el usuario no esta en el diccionario para que el proceso en el codigo de form si funciona
         }
         [TestMethod]
-
+// luego se repite el proceso en los dem谩s usuarios para testear que con todos funciones bien
         public void TestGetValidarUsuario2()
         {
             var museo = new FrmLogin.Museo();
@@ -54,31 +41,31 @@ namespace PruebasUnitarias
             bool esValido = museo.ValidarUsuario("SAMUEL BASTIDAS PAMPLONA", "202210320");
 
 
-            Assert.IsTrue(esValido);  // El usuario y la contrase馻 son v醠idos
+            Assert.IsTrue(esValido);  
         }
         [TestMethod]
         public void TestValidarUsuario_ContrasenaIncorrecta2()
         {
-            // Arrange
+           
             var museo = new FrmLogin.Museo();
 
-            // Act
+        
             bool esValido = museo.ValidarUsuario("SAMUEL BASTIDAS PAMPLONA", "incorrecta");
 
-            // Assert
-            Assert.IsFalse(esValido);  // El usuario es v醠ido, pero la contrase馻 es incorrecta
+            
+            Assert.IsFalse(esValido);  
         }
         [TestMethod]
         public void TestValidarUsuario_UsuarioInvalido2()
         {
-            // Arrange
+         
             var museo = new FrmLogin.Museo();
 
-            // Act
+          
             bool esValido = museo.ValidarUsuario("LO QUE SEA", "123456");
 
-            // Assert
-            Assert.IsFalse(esValido);  // El usuario no existe
+           
+            Assert.IsFalse(esValido); 
         }
         [TestMethod]
 
@@ -90,31 +77,31 @@ namespace PruebasUnitarias
             bool esValido = museo.ValidarUsuario("TOMAS BETANCUR DELGADO", "202210279");
 
 
-            Assert.IsTrue(esValido);  // El usuario y la contrase馻 son v醠idos
+            Assert.IsTrue(esValido);
         }
         [TestMethod]
         public void TestValidarUsuario_ContrasenaIncorrecta3()
         {
-            // Arrange
+          
             var museo = new FrmLogin.Museo();
 
-            // Act
+          
             bool esValido = museo.ValidarUsuario("TOMAS BETANCUR DELGADO", "incorrecta");
 
-            // Assert
-            Assert.IsFalse(esValido);  // El usuario es v醠ido, pero la contrase馻 es incorrecta
+            
+            Assert.IsFalse(esValido); 
         }
         [TestMethod]
         public void TestValidarUsuario_UsuarioInvalido3()
         {
-            // Arrange
+          
             var museo = new FrmLogin.Museo();
 
-            // Act
+           
             bool esValido = museo.ValidarUsuario("LO QUE SEA", "123456");
 
-            // Assert
-            Assert.IsFalse(esValido);  // El usuario no existe
+          
+            Assert.IsFalse(esValido);  
         }
     }
 }
