@@ -10,3 +10,22 @@ C:\Users\tom1v\OneDrive\Escritorio\UNIVERSIDAD DEL TOMI\SEMESTRE 6\Estructura De
 C:\Users\tom1v\OneDrive\Escritorio\UNIVERSIDAD DEL TOMI\SEMESTRE 6\Estructura De Datos\Proyecto De Aula\Gestión Museo\Gestión Museo\obj\Debug\Gestión Museo.pdb
 C:\Users\tom1v\OneDrive\Escritorio\UNIVERSIDAD DEL TOMI\SEMESTRE 6\Estructura De Datos\Proyecto De Aula\Gestión Museo\Gestión Museo\obj\Debug\Gestión_Museo.FrmPersonal.resources
 C:\Users\tom1v\OneDrive\Escritorio\UNIVERSIDAD DEL TOMI\SEMESTRE 6\Estructura De Datos\Proyecto De Aula\Gestión Museo\Gestión Museo\obj\Debug\Gestión_Museo.FrmUsuarioFinal.resources
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\Gestión Museo.exe.config
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\Gestión Museo.exe
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\Gestión Museo.pdb
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión Museo.csproj.AssemblyReference.cache
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión_Museo.FrmLogin.resources
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión_Museo.FrmPersonal.resources
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión_Museo.FrmUsuarioFinal.resources
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión_Museo.Properties.Resources.resources
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión Museo.csproj.GenerateResource.cache
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión Museo.csproj.CoreCompileInputs.cache
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión Museo.exe
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gestión Museo.pdb
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\MySql.Data.dll
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\System.Memory.dll
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\System.Buffers.dll
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\MySql.Data.xml
+C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gesti_n .77BF2A58.Up2Date

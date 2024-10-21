@@ -18,6 +18,5 @@ namespace Gestión_Museo
         {
             InitializeComponent();
         }
-
     }
 }

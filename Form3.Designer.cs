@@ -29,35 +29,36 @@
         private void InitializeComponent()
         {
             this.grpInformacionPinturas = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.trvInfoPinturas = new System.Windows.Forms.TreeView();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctImagen = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grpInformacionPinturas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpInformacionPinturas
             // 
-            this.grpInformacionPinturas.Controls.Add(this.treeView1);
+            this.grpInformacionPinturas.Controls.Add(this.trvInfoPinturas);
             this.grpInformacionPinturas.Controls.Add(this.btnAnterior);
             this.grpInformacionPinturas.Controls.Add(this.btnSiguiente);
-            this.grpInformacionPinturas.Controls.Add(this.pictureBox1);
+            this.grpInformacionPinturas.Controls.Add(this.pctImagen);
             this.grpInformacionPinturas.Location = new System.Drawing.Point(26, 80);
             this.grpInformacionPinturas.Name = "grpInformacionPinturas";
-            this.grpInformacionPinturas.Size = new System.Drawing.Size(676, 402);
+            this.grpInformacionPinturas.Size = new System.Drawing.Size(676, 365);
             this.grpInformacionPinturas.TabIndex = 0;
             this.grpInformacionPinturas.TabStop = false;
             this.grpInformacionPinturas.Text = "Información Pinturas";
             // 
-            // treeView1
+            // trvInfoPinturas
             // 
-            this.treeView1.Location = new System.Drawing.Point(349, 19);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(302, 328);
-            this.treeView1.TabIndex = 4;
+            this.trvInfoPinturas.Location = new System.Drawing.Point(349, 19);
+            this.trvInfoPinturas.Name = "trvInfoPinturas";
+            this.trvInfoPinturas.Size = new System.Drawing.Size(302, 328);
+            this.trvInfoPinturas.TabIndex = 4;
             // 
             // btnAnterior
             // 
@@ -77,40 +78,41 @@
             this.btnSiguiente.Text = "Siguiente Pintura";
             this.btnSiguiente.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pctImagen
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(52, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(261, 290);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pctImagen.Location = new System.Drawing.Point(52, 19);
+            this.pctImagen.Name = "pctImagen";
+            this.pctImagen.Size = new System.Drawing.Size(261, 290);
+            this.pctImagen.TabIndex = 0;
+            this.pctImagen.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(494, 38);
+            this.textBox1.Location = new System.Drawing.Point(601, 54);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(66, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // textBox2
+            // pictureBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(602, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "Lupa";
+            this.pictureBox1.Location = new System.Drawing.Point(673, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 20);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmUsuarioFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 494);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(718, 460);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.grpInformacionPinturas);
             this.Name = "FrmUsuarioFinal";
             this.Text = "Form3";
             this.grpInformacionPinturas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -122,9 +124,9 @@
         private System.Windows.Forms.GroupBox grpInformacionPinturas;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pctImagen;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView trvInfoPinturas;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

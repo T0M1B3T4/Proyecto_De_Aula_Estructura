@@ -16,14 +16,22 @@ namespace Gestión_Museo
         }
         private void grpLogin_Enter(object sender, EventArgs e)
         { }
-        //Credenciales Del "Personal Del Museo"
-        private Dictionary<string, string> usuarios = new Dictionary<string, string> //Implementación de HashMap para gestionar mejor las claves de acceso del personal del museo
+        public class Museo
         {
+
+            //Credenciales Del "Personal Del Museo"
+            private Dictionary<string, string> usuarios = new Dictionary<string, string> //Implementación de HashMap para gestionar mejor las claves de acceso del personal del museo
+            {
             { "Dario Borja Gamboa", "202110395" },
             { "Tomás Betancur Delgado", "202210279" },
             { "Samuel Bastidas Pamplona", "202210320" },
             { "Andrés Camilo Vélez Moncada", "202020074" }
-        };
+            };
+            public bool ValidarUsuario(string nombre, string contrasena)
+            {
+                return usuarios.ContainsKey(nombre) && usuarios[nombre] == contrasena;
+            }
+        }
         private void btnSalir1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -39,10 +47,10 @@ namespace Gestión_Museo
         {
             FrmPersonal form2 = new FrmPersonal();
             FrmUsuarioFinal form3 = new FrmUsuarioFinal();
+            Museo museo = new Museo();
 
-            if (usuarios.ContainsKey(txtUsuario1.Text) && usuarios[txtUsuario1.Text] == txtContrasena1.Text)
+            if (museo.ValidarUsuario(txtUsuario1.Text, txtContrasena1.Text))
                 form2.ShowDialog();
-
             else
                 try
                 {

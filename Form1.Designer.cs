@@ -33,16 +33,16 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.grpLogin = new System.Windows.Forms.GroupBox();
+            this.btnSalir1 = new System.Windows.Forms.Button();
+            this.btnEntrar1 = new System.Windows.Forms.Button();
+            this.chkMostrarContrasena1 = new System.Windows.Forms.CheckBox();
+            this.lblContrasena1 = new System.Windows.Forms.Label();
+            this.lblUsuario1 = new System.Windows.Forms.Label();
+            this.txtContrasena1 = new System.Windows.Forms.TextBox();
+            this.txtUsuario1 = new System.Windows.Forms.TextBox();
             this.chkMostrar_Contrasena = new System.Windows.Forms.CheckBox();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.txtUsuario1 = new System.Windows.Forms.TextBox();
-            this.txtContrasena1 = new System.Windows.Forms.TextBox();
-            this.lblUsuario1 = new System.Windows.Forms.Label();
-            this.lblContrasena1 = new System.Windows.Forms.Label();
-            this.chkMostrarContrasena1 = new System.Windows.Forms.CheckBox();
-            this.btnEntrar1 = new System.Windows.Forms.Button();
-            this.btnSalir1 = new System.Windows.Forms.Button();
             this.grpLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,74 @@
             this.grpLogin.TabIndex = 0;
             this.grpLogin.TabStop = false;
             // 
+            // btnSalir1
+            // 
+            this.btnSalir1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnSalir1.Location = new System.Drawing.Point(101, 303);
+            this.btnSalir1.Name = "btnSalir1";
+            this.btnSalir1.Size = new System.Drawing.Size(128, 33);
+            this.btnSalir1.TabIndex = 5;
+            this.btnSalir1.Text = "Cancelar";
+            this.btnSalir1.UseVisualStyleBackColor = true;
+            this.btnSalir1.Click += new System.EventHandler(this.btnSalir1_Click);
+            // 
+            // btnEntrar1
+            // 
+            this.btnEntrar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar1.Location = new System.Drawing.Point(282, 303);
+            this.btnEntrar1.Name = "btnEntrar1";
+            this.btnEntrar1.Size = new System.Drawing.Size(129, 33);
+            this.btnEntrar1.TabIndex = 1;
+            this.btnEntrar1.Text = "Ingresar";
+            this.btnEntrar1.UseVisualStyleBackColor = true;
+            this.btnEntrar1.Click += new System.EventHandler(this.btnEntrar1_Click);
+            // 
+            // chkMostrarContrasena1
+            // 
+            this.chkMostrarContrasena1.AutoSize = true;
+            this.chkMostrarContrasena1.Location = new System.Drawing.Point(305, 250);
+            this.chkMostrarContrasena1.Name = "chkMostrarContrasena1";
+            this.chkMostrarContrasena1.Size = new System.Drawing.Size(118, 17);
+            this.chkMostrarContrasena1.TabIndex = 4;
+            this.chkMostrarContrasena1.Text = "Mostrar Contraseña";
+            this.chkMostrarContrasena1.UseVisualStyleBackColor = true;
+            this.chkMostrarContrasena1.CheckedChanged += new System.EventHandler(this.chkMostrarContrasena1_CheckedChanged);
+            // 
+            // lblContrasena1
+            // 
+            this.lblContrasena1.AutoSize = true;
+            this.lblContrasena1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lblContrasena1.Location = new System.Drawing.Point(84, 171);
+            this.lblContrasena1.Name = "lblContrasena1";
+            this.lblContrasena1.Size = new System.Drawing.Size(121, 30);
+            this.lblContrasena1.TabIndex = 3;
+            this.lblContrasena1.Text = "Contraseña";
+            // 
+            // lblUsuario1
+            // 
+            this.lblUsuario1.AutoSize = true;
+            this.lblUsuario1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario1.Location = new System.Drawing.Point(84, 67);
+            this.lblUsuario1.Name = "lblUsuario1";
+            this.lblUsuario1.Size = new System.Drawing.Size(86, 30);
+            this.lblUsuario1.TabIndex = 2;
+            this.lblUsuario1.Text = "Usuario";
+            // 
+            // txtContrasena1
+            // 
+            this.txtContrasena1.Location = new System.Drawing.Point(86, 204);
+            this.txtContrasena1.Name = "txtContrasena1";
+            this.txtContrasena1.PasswordChar = '*';
+            this.txtContrasena1.Size = new System.Drawing.Size(283, 20);
+            this.txtContrasena1.TabIndex = 1;
+            // 
+            // txtUsuario1
+            // 
+            this.txtUsuario1.Location = new System.Drawing.Point(86, 100);
+            this.txtUsuario1.Name = "txtUsuario1";
+            this.txtUsuario1.Size = new System.Drawing.Size(283, 20);
+            this.txtUsuario1.TabIndex = 0;
+            // 
             // chkMostrar_Contrasena
             // 
             this.chkMostrar_Contrasena.AutoSize = true;
@@ -124,74 +192,6 @@
             this.btnSalir.Text = "Cancelar";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // txtUsuario1
-            // 
-            this.txtUsuario1.Location = new System.Drawing.Point(86, 100);
-            this.txtUsuario1.Name = "txtUsuario1";
-            this.txtUsuario1.Size = new System.Drawing.Size(283, 20);
-            this.txtUsuario1.TabIndex = 0;
-            // 
-            // txtContrasena1
-            // 
-            this.txtContrasena1.Location = new System.Drawing.Point(86, 204);
-            this.txtContrasena1.Name = "txtContrasena1";
-            this.txtContrasena1.PasswordChar = '*';
-            this.txtContrasena1.Size = new System.Drawing.Size(283, 20);
-            this.txtContrasena1.TabIndex = 1;
-            // 
-            // lblUsuario1
-            // 
-            this.lblUsuario1.AutoSize = true;
-            this.lblUsuario1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario1.Location = new System.Drawing.Point(84, 67);
-            this.lblUsuario1.Name = "lblUsuario1";
-            this.lblUsuario1.Size = new System.Drawing.Size(86, 30);
-            this.lblUsuario1.TabIndex = 2;
-            this.lblUsuario1.Text = "Usuario";
-            // 
-            // lblContrasena1
-            // 
-            this.lblContrasena1.AutoSize = true;
-            this.lblContrasena1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lblContrasena1.Location = new System.Drawing.Point(84, 171);
-            this.lblContrasena1.Name = "lblContrasena1";
-            this.lblContrasena1.Size = new System.Drawing.Size(121, 30);
-            this.lblContrasena1.TabIndex = 3;
-            this.lblContrasena1.Text = "Contraseña";
-            // 
-            // chkMostrarContrasena1
-            // 
-            this.chkMostrarContrasena1.AutoSize = true;
-            this.chkMostrarContrasena1.Location = new System.Drawing.Point(305, 250);
-            this.chkMostrarContrasena1.Name = "chkMostrarContrasena1";
-            this.chkMostrarContrasena1.Size = new System.Drawing.Size(118, 17);
-            this.chkMostrarContrasena1.TabIndex = 4;
-            this.chkMostrarContrasena1.Text = "Mostrar Contraseña";
-            this.chkMostrarContrasena1.UseVisualStyleBackColor = true;
-            this.chkMostrarContrasena1.CheckedChanged += new System.EventHandler(this.chkMostrarContrasena1_CheckedChanged);
-            // 
-            // btnEntrar1
-            // 
-            this.btnEntrar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar1.Location = new System.Drawing.Point(282, 303);
-            this.btnEntrar1.Name = "btnEntrar1";
-            this.btnEntrar1.Size = new System.Drawing.Size(129, 33);
-            this.btnEntrar1.TabIndex = 1;
-            this.btnEntrar1.Text = "Ingresar";
-            this.btnEntrar1.UseVisualStyleBackColor = true;
-            this.btnEntrar1.Click += new System.EventHandler(this.btnEntrar1_Click);
-            // 
-            // btnSalir1
-            // 
-            this.btnSalir1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnSalir1.Location = new System.Drawing.Point(101, 303);
-            this.btnSalir1.Name = "btnSalir1";
-            this.btnSalir1.Size = new System.Drawing.Size(128, 33);
-            this.btnSalir1.TabIndex = 5;
-            this.btnSalir1.Text = "Cancelar";
-            this.btnSalir1.UseVisualStyleBackColor = true;
-            this.btnSalir1.Click += new System.EventHandler(this.btnSalir1_Click);
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +199,7 @@
             this.ClientSize = new System.Drawing.Size(1033, 637);
             this.Controls.Add(this.grpLogin);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "I n g r e s o   G M S";
             this.grpLogin.ResumeLayout(false);
             this.grpLogin.PerformLayout();

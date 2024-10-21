@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestión Museo", "Gestión Museo.csproj", "{43B35F0B-77A6-4F38-954C-34204916BD84}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasUnitarias", "..\PruebasUnitarias\PruebasUnitarias.csproj", "{A2080B4B-ED36-476D-AA14-6A3CE7E0E6A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestión Museo", "..\Gestión Museo.csproj", "{43B35F0B-77A6-4F38-954C-34204916BD84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,15 +15,11 @@ Global
 		{43B35F0B-77A6-4F38-954C-34204916BD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43B35F0B-77A6-4F38-954C-34204916BD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43B35F0B-77A6-4F38-954C-34204916BD84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2080B4B-ED36-476D-AA14-6A3CE7E0E6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2080B4B-ED36-476D-AA14-6A3CE7E0E6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2080B4B-ED36-476D-AA14-6A3CE7E0E6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2080B4B-ED36-476D-AA14-6A3CE7E0E6A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7EDE8243-78FB-4C5C-B76B-5233521E22B2}
+		SolutionGuid = {570B4739-7DA4-44BC-B8EB-25489250836B}
 	EndGlobalSection
 EndGlobal
