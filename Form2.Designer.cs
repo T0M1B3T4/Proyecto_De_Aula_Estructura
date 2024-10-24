@@ -37,6 +37,8 @@
             this.btnEliminar_Pintura = new System.Windows.Forms.Button();
             this.btnAñadir_Pintura = new System.Windows.Forms.Button();
             this.grpInfo_Pintura = new System.Windows.Forms.GroupBox();
+            this.lblImagePath = new System.Windows.Forms.Label();
+            this.txtImagePath = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.lblMovimiento = new System.Windows.Forms.Label();
@@ -55,8 +57,7 @@
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.pctImagen = new System.Windows.Forms.PictureBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.lblImagePath = new System.Windows.Forms.Label();
-            this.txtImagePath = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.grpInformacion.SuspendLayout();
             this.GrpBotones.SuspendLayout();
             this.grpInfo_Pintura.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             // grpInformacion
             // 
+            this.grpInformacion.Controls.Add(this.textBox1);
             this.grpInformacion.Controls.Add(this.GrpBotones);
             this.grpInformacion.Controls.Add(this.grpInfo_Pintura);
             this.grpInformacion.Controls.Add(this.pctImagen);
@@ -175,9 +177,25 @@
             this.grpInfo_Pintura.TabStop = false;
             this.grpInfo_Pintura.Text = "Información Pintura";
             // 
+            // lblImagePath
+            // 
+            this.lblImagePath.AutoSize = true;
+            this.lblImagePath.Location = new System.Drawing.Point(6, 238);
+            this.lblImagePath.Name = "lblImagePath";
+            this.lblImagePath.Size = new System.Drawing.Size(68, 13);
+            this.lblImagePath.TabIndex = 17;
+            this.lblImagePath.Text = "Ruta Imagen";
+            // 
+            // txtImagePath
+            // 
+            this.txtImagePath.Location = new System.Drawing.Point(120, 235);
+            this.txtImagePath.Name = "txtImagePath";
+            this.txtImagePath.Size = new System.Drawing.Size(197, 20);
+            this.txtImagePath.TabIndex = 16;
+            // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(120, 26);
+            this.txtId.Location = new System.Drawing.Point(120, 29);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(197, 20);
             this.txtId.TabIndex = 15;
@@ -318,21 +336,12 @@
             this.ofd.FileName = "openFileDialog1";
             this.ofd.Filter = "Archivos De Imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
             // 
-            // lblImagePath
+            // textBox1
             // 
-            this.lblImagePath.AutoSize = true;
-            this.lblImagePath.Location = new System.Drawing.Point(6, 238);
-            this.lblImagePath.Name = "lblImagePath";
-            this.lblImagePath.Size = new System.Drawing.Size(68, 13);
-            this.lblImagePath.TabIndex = 17;
-            this.lblImagePath.Text = "Ruta Imagen";
-            // 
-            // txtImagePath
-            // 
-            this.txtImagePath.Location = new System.Drawing.Point(120, 235);
-            this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.Size = new System.Drawing.Size(197, 20);
-            this.txtImagePath.TabIndex = 16;
+            this.textBox1.Location = new System.Drawing.Point(692, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 20);
+            this.textBox1.TabIndex = 18;
             // 
             // FrmPersonal
             // 
@@ -345,6 +354,7 @@
             this.Text = "Personal Museo";
             this.Load += new System.EventHandler(this.FrmPersonal_Load);
             this.grpInformacion.ResumeLayout(false);
+            this.grpInformacion.PerformLayout();
             this.GrpBotones.ResumeLayout(false);
             this.grpInfo_Pintura.ResumeLayout(false);
             this.grpInfo_Pintura.PerformLayout();
@@ -384,5 +394,6 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblImagePath;
         private System.Windows.Forms.TextBox txtImagePath;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
