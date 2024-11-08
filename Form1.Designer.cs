@@ -33,6 +33,7 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.grpLogin = new System.Windows.Forms.GroupBox();
+            this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnSalir1 = new System.Windows.Forms.Button();
             this.btnEntrar1 = new System.Windows.Forms.Button();
             this.chkMostrarContrasena1 = new System.Windows.Forms.CheckBox();
@@ -83,6 +84,7 @@
             // 
             // grpLogin
             // 
+            this.grpLogin.Controls.Add(this.btnCrearUsuario);
             this.grpLogin.Controls.Add(this.btnSalir1);
             this.grpLogin.Controls.Add(this.btnEntrar1);
             this.grpLogin.Controls.Add(this.chkMostrarContrasena1);
@@ -90,18 +92,32 @@
             this.grpLogin.Controls.Add(this.lblUsuario1);
             this.grpLogin.Controls.Add(this.txtContrasena1);
             this.grpLogin.Controls.Add(this.txtUsuario1);
-            this.grpLogin.Location = new System.Drawing.Point(276, 160);
+            this.grpLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpLogin.Location = new System.Drawing.Point(12, 12);
             this.grpLogin.Name = "grpLogin";
             this.grpLogin.Size = new System.Drawing.Size(474, 373);
             this.grpLogin.TabIndex = 0;
             this.grpLogin.TabStop = false;
             // 
+            // btnCrearUsuario
+            // 
+            this.btnCrearUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCrearUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearUsuario.Location = new System.Drawing.Point(61, 227);
+            this.btnCrearUsuario.Name = "btnCrearUsuario";
+            this.btnCrearUsuario.Size = new System.Drawing.Size(143, 33);
+            this.btnCrearUsuario.TabIndex = 6;
+            this.btnCrearUsuario.Text = "Crear Usuario";
+            this.btnCrearUsuario.UseVisualStyleBackColor = true;
+            this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
+            // 
             // btnSalir1
             // 
-            this.btnSalir1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnSalir1.Location = new System.Drawing.Point(101, 303);
+            this.btnSalir1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir1.Location = new System.Drawing.Point(61, 303);
             this.btnSalir1.Name = "btnSalir1";
-            this.btnSalir1.Size = new System.Drawing.Size(128, 33);
+            this.btnSalir1.Size = new System.Drawing.Size(143, 33);
             this.btnSalir1.TabIndex = 5;
             this.btnSalir1.Text = "Cancelar";
             this.btnSalir1.UseVisualStyleBackColor = true;
@@ -109,8 +125,9 @@
             // 
             // btnEntrar1
             // 
-            this.btnEntrar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar1.Location = new System.Drawing.Point(282, 303);
+            this.btnEntrar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntrar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar1.Location = new System.Drawing.Point(267, 303);
             this.btnEntrar1.Name = "btnEntrar1";
             this.btnEntrar1.Size = new System.Drawing.Size(129, 33);
             this.btnEntrar1.TabIndex = 1;
@@ -121,9 +138,11 @@
             // chkMostrarContrasena1
             // 
             this.chkMostrarContrasena1.AutoSize = true;
-            this.chkMostrarContrasena1.Location = new System.Drawing.Point(305, 250);
+            this.chkMostrarContrasena1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkMostrarContrasena1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkMostrarContrasena1.Location = new System.Drawing.Point(242, 227);
             this.chkMostrarContrasena1.Name = "chkMostrarContrasena1";
-            this.chkMostrarContrasena1.Size = new System.Drawing.Size(118, 17);
+            this.chkMostrarContrasena1.Size = new System.Drawing.Size(187, 24);
             this.chkMostrarContrasena1.TabIndex = 4;
             this.chkMostrarContrasena1.Text = "Mostrar Contraseña";
             this.chkMostrarContrasena1.UseVisualStyleBackColor = true;
@@ -133,7 +152,7 @@
             // 
             this.lblContrasena1.AutoSize = true;
             this.lblContrasena1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lblContrasena1.Location = new System.Drawing.Point(84, 171);
+            this.lblContrasena1.Location = new System.Drawing.Point(184, 121);
             this.lblContrasena1.Name = "lblContrasena1";
             this.lblContrasena1.Size = new System.Drawing.Size(121, 30);
             this.lblContrasena1.TabIndex = 3;
@@ -143,7 +162,7 @@
             // 
             this.lblUsuario1.AutoSize = true;
             this.lblUsuario1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario1.Location = new System.Drawing.Point(84, 67);
+            this.lblUsuario1.Location = new System.Drawing.Point(198, 16);
             this.lblUsuario1.Name = "lblUsuario1";
             this.lblUsuario1.Size = new System.Drawing.Size(86, 30);
             this.lblUsuario1.TabIndex = 2;
@@ -151,17 +170,17 @@
             // 
             // txtContrasena1
             // 
-            this.txtContrasena1.Location = new System.Drawing.Point(86, 204);
+            this.txtContrasena1.Location = new System.Drawing.Point(61, 163);
             this.txtContrasena1.Name = "txtContrasena1";
             this.txtContrasena1.PasswordChar = '*';
-            this.txtContrasena1.Size = new System.Drawing.Size(283, 20);
+            this.txtContrasena1.Size = new System.Drawing.Size(350, 20);
             this.txtContrasena1.TabIndex = 1;
             // 
             // txtUsuario1
             // 
-            this.txtUsuario1.Location = new System.Drawing.Point(86, 100);
+            this.txtUsuario1.Location = new System.Drawing.Point(61, 59);
             this.txtUsuario1.Name = "txtUsuario1";
-            this.txtUsuario1.Size = new System.Drawing.Size(283, 20);
+            this.txtUsuario1.Size = new System.Drawing.Size(350, 20);
             this.txtUsuario1.TabIndex = 0;
             // 
             // chkMostrar_Contrasena
@@ -196,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 637);
+            this.ClientSize = new System.Drawing.Size(501, 397);
             this.Controls.Add(this.grpLogin);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -223,5 +242,6 @@
         private System.Windows.Forms.Button btnSalir1;
         private System.Windows.Forms.Button btnEntrar1;
         private System.Windows.Forms.CheckBox chkMostrarContrasena1;
+        private System.Windows.Forms.Button btnCrearUsuario;
     }
 }

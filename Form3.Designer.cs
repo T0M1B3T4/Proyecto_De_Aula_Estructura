@@ -29,91 +29,123 @@
         private void InitializeComponent()
         {
             this.grpInformacionPinturas = new System.Windows.Forms.GroupBox();
-            this.trvInfoPinturas = new System.Windows.Forms.TreeView();
+            this.txtInfoCompleta = new System.Windows.Forms.RichTextBox();
+            this.txtNombreSeleccionado = new System.Windows.Forms.TextBox();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.pctImagen = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPintura = new System.Windows.Forms.PictureBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.pbBuscar = new System.Windows.Forms.PictureBox();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.grpInformacionPinturas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPintura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // grpInformacionPinturas
             // 
-            this.grpInformacionPinturas.Controls.Add(this.trvInfoPinturas);
+            this.grpInformacionPinturas.Controls.Add(this.btnFinalizar);
+            this.grpInformacionPinturas.Controls.Add(this.txtInfoCompleta);
+            this.grpInformacionPinturas.Controls.Add(this.txtNombreSeleccionado);
             this.grpInformacionPinturas.Controls.Add(this.btnAnterior);
             this.grpInformacionPinturas.Controls.Add(this.btnSiguiente);
-            this.grpInformacionPinturas.Controls.Add(this.pctImagen);
-            this.grpInformacionPinturas.Location = new System.Drawing.Point(26, 80);
+            this.grpInformacionPinturas.Controls.Add(this.pictureBoxPintura);
+            this.grpInformacionPinturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpInformacionPinturas.Location = new System.Drawing.Point(12, 58);
             this.grpInformacionPinturas.Name = "grpInformacionPinturas";
-            this.grpInformacionPinturas.Size = new System.Drawing.Size(676, 365);
+            this.grpInformacionPinturas.Size = new System.Drawing.Size(676, 404);
             this.grpInformacionPinturas.TabIndex = 0;
             this.grpInformacionPinturas.TabStop = false;
             this.grpInformacionPinturas.Text = "Información Pinturas";
             // 
-            // trvInfoPinturas
+            // txtInfoCompleta
             // 
-            this.trvInfoPinturas.Location = new System.Drawing.Point(349, 19);
-            this.trvInfoPinturas.Name = "trvInfoPinturas";
-            this.trvInfoPinturas.Size = new System.Drawing.Size(302, 328);
-            this.trvInfoPinturas.TabIndex = 4;
+            this.txtInfoCompleta.Location = new System.Drawing.Point(349, 72);
+            this.txtInfoCompleta.Name = "txtInfoCompleta";
+            this.txtInfoCompleta.Size = new System.Drawing.Size(302, 275);
+            this.txtInfoCompleta.TabIndex = 5;
+            this.txtInfoCompleta.Text = "";
+            // 
+            // txtNombreSeleccionado
+            // 
+            this.txtNombreSeleccionado.Location = new System.Drawing.Point(349, 32);
+            this.txtNombreSeleccionado.Name = "txtNombreSeleccionado";
+            this.txtNombreSeleccionado.ReadOnly = true;
+            this.txtNombreSeleccionado.Size = new System.Drawing.Size(302, 22);
+            this.txtNombreSeleccionado.TabIndex = 3;
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(52, 325);
+            this.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnterior.Location = new System.Drawing.Point(19, 325);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(94, 22);
+            this.btnAnterior.Size = new System.Drawing.Size(146, 30);
             this.btnAnterior.TabIndex = 2;
             this.btnAnterior.Text = "Pintura Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(215, 325);
+            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiguiente.Location = new System.Drawing.Point(171, 325);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(98, 22);
+            this.btnSiguiente.Size = new System.Drawing.Size(142, 30);
             this.btnSiguiente.TabIndex = 1;
             this.btnSiguiente.Text = "Siguiente Pintura";
             this.btnSiguiente.UseVisualStyleBackColor = true;
             // 
-            // pctImagen
+            // pictureBoxPintura
             // 
-            this.pctImagen.Location = new System.Drawing.Point(52, 19);
-            this.pctImagen.Name = "pctImagen";
-            this.pctImagen.Size = new System.Drawing.Size(261, 290);
-            this.pctImagen.TabIndex = 0;
-            this.pctImagen.TabStop = false;
+            this.pictureBoxPintura.Location = new System.Drawing.Point(19, 19);
+            this.pictureBoxPintura.Name = "pictureBoxPintura";
+            this.pictureBoxPintura.Size = new System.Drawing.Size(294, 290);
+            this.pictureBoxPintura.TabIndex = 0;
+            this.pictureBoxPintura.TabStop = false;
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            this.textBox1.Location = new System.Drawing.Point(601, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.Location = new System.Drawing.Point(361, 32);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(287, 22);
+            this.txtBusqueda.TabIndex = 1;
             // 
-            // pictureBox1
+            // pbBuscar
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(673, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 20);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pbBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBuscar.Image = global::Gestión_Museo.Properties.Resources.LUPA;
+            this.pbBuscar.Location = new System.Drawing.Point(659, 32);
+            this.pbBuscar.Name = "pbBuscar";
+            this.pbBuscar.Size = new System.Drawing.Size(29, 20);
+            this.pbBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBuscar.TabIndex = 2;
+            this.pbBuscar.TabStop = false;
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFinalizar.Location = new System.Drawing.Point(87, 361);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(142, 30);
+            this.btnFinalizar.TabIndex = 6;
+            this.btnFinalizar.Text = "Finalizar Sesion";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // FrmUsuarioFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 460);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(710, 474);
+            this.Controls.Add(this.pbBuscar);
+            this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.grpInformacionPinturas);
             this.Name = "FrmUsuarioFinal";
-            this.Text = "Form3";
+            this.Text = "Usuario Final";
             this.grpInformacionPinturas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpInformacionPinturas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPintura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,9 +156,11 @@
         private System.Windows.Forms.GroupBox grpInformacionPinturas;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.PictureBox pctImagen;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TreeView trvInfoPinturas;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxPintura;
+        private System.Windows.Forms.PictureBox pbBuscar;
+        private System.Windows.Forms.TextBox txtBusqueda;
+        private System.Windows.Forms.TextBox txtNombreSeleccionado;
+        private System.Windows.Forms.RichTextBox txtInfoCompleta;
+        private System.Windows.Forms.Button btnFinalizar;
     }
 }

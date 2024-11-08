@@ -29,3 +29,22 @@ C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Muse
 C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\System.Buffers.dll
 C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\bin\Debug\MySql.Data.xml
 C:\Users\tom1v\OneDrive\Escritorio\Proyecto De Aula\Gestión_Museo\Gestión_Museo\obj\Debug\Gesti_n .77BF2A58.Up2Date
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\Gestión Museo.exe.config
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\Gestión Museo.exe
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\Gestión Museo.pdb
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\System.Memory.dll
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\System.Buffers.dll
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\bin\Debug\MySql.Data.xml
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión Museo.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión_Museo.FrmLogin.resources
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión_Museo.FrmPersonal.resources
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión_Museo.FrmUsuarioFinal.resources
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión_Museo.Properties.Resources.resources
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión Museo.csproj.GenerateResource.cache
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión Museo.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión .77BF2A58.Up2Date
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión Museo.exe
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión Museo.pdb
+C:\Users\LENOVO\Desktop\PROYECTO DE DATOS\obj\Debug\Gestión_Museo.Registro.resources
