@@ -44,7 +44,15 @@
             this.chkMostrar_Contrasena = new System.Windows.Forms.CheckBox();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.grpLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -84,6 +92,10 @@
             // 
             // grpLogin
             // 
+            this.grpLogin.Controls.Add(this.pictureBox4);
+            this.grpLogin.Controls.Add(this.pictureBox3);
+            this.grpLogin.Controls.Add(this.pictureBox2);
+            this.grpLogin.Controls.Add(this.pictureBox1);
             this.grpLogin.Controls.Add(this.btnCrearUsuario);
             this.grpLogin.Controls.Add(this.btnSalir1);
             this.grpLogin.Controls.Add(this.btnEntrar1);
@@ -95,7 +107,7 @@
             this.grpLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpLogin.Location = new System.Drawing.Point(12, 12);
             this.grpLogin.Name = "grpLogin";
-            this.grpLogin.Size = new System.Drawing.Size(474, 373);
+            this.grpLogin.Size = new System.Drawing.Size(614, 495);
             this.grpLogin.TabIndex = 0;
             this.grpLogin.TabStop = false;
             // 
@@ -103,7 +115,7 @@
             // 
             this.btnCrearUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearUsuario.Location = new System.Drawing.Point(61, 227);
+            this.btnCrearUsuario.Location = new System.Drawing.Point(118, 227);
             this.btnCrearUsuario.Name = "btnCrearUsuario";
             this.btnCrearUsuario.Size = new System.Drawing.Size(143, 33);
             this.btnCrearUsuario.TabIndex = 6;
@@ -115,7 +127,7 @@
             // 
             this.btnSalir1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir1.Location = new System.Drawing.Point(61, 303);
+            this.btnSalir1.Location = new System.Drawing.Point(118, 303);
             this.btnSalir1.Name = "btnSalir1";
             this.btnSalir1.Size = new System.Drawing.Size(143, 33);
             this.btnSalir1.TabIndex = 5;
@@ -127,7 +139,7 @@
             // 
             this.btnEntrar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEntrar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar1.Location = new System.Drawing.Point(267, 303);
+            this.btnEntrar1.Location = new System.Drawing.Point(324, 303);
             this.btnEntrar1.Name = "btnEntrar1";
             this.btnEntrar1.Size = new System.Drawing.Size(129, 33);
             this.btnEntrar1.TabIndex = 1;
@@ -140,7 +152,7 @@
             this.chkMostrarContrasena1.AutoSize = true;
             this.chkMostrarContrasena1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkMostrarContrasena1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkMostrarContrasena1.Location = new System.Drawing.Point(242, 227);
+            this.chkMostrarContrasena1.Location = new System.Drawing.Point(299, 227);
             this.chkMostrarContrasena1.Name = "chkMostrarContrasena1";
             this.chkMostrarContrasena1.Size = new System.Drawing.Size(187, 24);
             this.chkMostrarContrasena1.TabIndex = 4;
@@ -152,7 +164,7 @@
             // 
             this.lblContrasena1.AutoSize = true;
             this.lblContrasena1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lblContrasena1.Location = new System.Drawing.Point(184, 121);
+            this.lblContrasena1.Location = new System.Drawing.Point(241, 121);
             this.lblContrasena1.Name = "lblContrasena1";
             this.lblContrasena1.Size = new System.Drawing.Size(121, 30);
             this.lblContrasena1.TabIndex = 3;
@@ -162,7 +174,7 @@
             // 
             this.lblUsuario1.AutoSize = true;
             this.lblUsuario1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario1.Location = new System.Drawing.Point(198, 16);
+            this.lblUsuario1.Location = new System.Drawing.Point(255, 16);
             this.lblUsuario1.Name = "lblUsuario1";
             this.lblUsuario1.Size = new System.Drawing.Size(86, 30);
             this.lblUsuario1.TabIndex = 2;
@@ -170,7 +182,7 @@
             // 
             // txtContrasena1
             // 
-            this.txtContrasena1.Location = new System.Drawing.Point(61, 163);
+            this.txtContrasena1.Location = new System.Drawing.Point(118, 163);
             this.txtContrasena1.Name = "txtContrasena1";
             this.txtContrasena1.PasswordChar = '*';
             this.txtContrasena1.Size = new System.Drawing.Size(350, 20);
@@ -178,7 +190,7 @@
             // 
             // txtUsuario1
             // 
-            this.txtUsuario1.Location = new System.Drawing.Point(61, 59);
+            this.txtUsuario1.Location = new System.Drawing.Point(118, 59);
             this.txtUsuario1.Name = "txtUsuario1";
             this.txtUsuario1.Size = new System.Drawing.Size(350, 20);
             this.txtUsuario1.TabIndex = 0;
@@ -211,17 +223,53 @@
             this.btnSalir.Text = "Cancelar";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(17, 401);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 88);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(172, 401);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(125, 88);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(321, 401);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(125, 88);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(470, 401);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(125, 88);
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 397);
+            this.ClientSize = new System.Drawing.Size(638, 519);
             this.Controls.Add(this.grpLogin);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "I n g r e s o   G M S";
             this.grpLogin.ResumeLayout(false);
             this.grpLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,5 +291,9 @@
         private System.Windows.Forms.Button btnEntrar1;
         private System.Windows.Forms.CheckBox chkMostrarContrasena1;
         private System.Windows.Forms.Button btnCrearUsuario;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

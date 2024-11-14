@@ -32,7 +32,7 @@ namespace Gestión_Museo
             private bool ValidarUsuarioEnBaseDeDatos(string nombre, string contrasena)
             {
                 // Definir la cadena de conexión a la base de datos
-                string connectionString = "Server=localhost;Database=museo;Uid=tu_usuario;Pwd=tu_contrasena;";
+                string connectionString = "server=localhost;database=museo;uid=root;pwd=1234;";
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {

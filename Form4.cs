@@ -83,8 +83,8 @@ namespace Gestión_Museo
 
         private bool UsuarioYaExiste(string usuario)
         {
-            string connectionString = "YourConnectionStringHere";  // Cambia esto por tu cadena de conexión real
-            string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @usuario";
+            string connectionString = "server=localhost;database=museo;uid=root;pwd=1234;";  // Cambia esto por tu cadena de conexión real
+            string query = "SELECT COUNT(*) FROM Usuarios WHERE nombre = @nombre";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -101,8 +101,8 @@ namespace Gestión_Museo
 
         private bool RegistrarNuevoUsuario(string usuario, string contrasena)
         {
-            string connectionString = "YourConnectionStringHere";  // Cambia esto por tu cadena de conexión real
-            string query = "INSERT INTO Usuarios (Usuario, Contrasena) VALUES (@usuario, @contrasena)";
+            string connectionString = "server=localhost;database=museo;uid=root;pwd=1234;";  // Cambia esto por tu cadena de conexión real
+            string query = "INSERT INTO Usuarios (nombre, Contrasena) VALUES (@nombre, @contrasena)";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

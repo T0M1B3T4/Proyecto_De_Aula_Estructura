@@ -12,7 +12,7 @@ namespace Gestión_Museo
     {
         private LinkedList<Pintura> Pinturas;
         private LinkedListNode<Pintura> Pintura_Actual;
-        private string conexionBD = "server=localhost;database=museo;uid=root;pwd=tu_contraseña;"; // Conexión a la base de datos
+        private string conexionBD = "server=localhost;database=museo;uid=root;pwd=1234;"; // Conexión a la base de datos
 
         public FrmUsuarioFinal()
         {
@@ -41,11 +41,11 @@ namespace Gestión_Museo
         {
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection(conexionBD))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;database=museo;uid=root;pwd=1234;"))
                 {
                     conexion.Open();
 
-                    string query = "SELECT Id_Obra, Titulo_Obra, Autor, Año, Genero, Dimensiones, Descripcion, Imagen FROM Pinturas";
+                    string query = "SELECT Id_Obra, Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas";
                     MySqlCommand comando = new MySqlCommand(query, conexion);
 
                     using (MySqlDataReader reader = comando.ExecuteReader())
@@ -60,7 +60,6 @@ namespace Gestión_Museo
                                 Año = Convert.ToInt32(reader["Año"]),
                                 Genero = reader["Genero"].ToString(),
                                 Dimensiones = reader["Dimensiones"].ToString(),
-                                Descripcion = reader["Descripcion"].ToString(),
                                 Imagen = reader["Imagen"] as byte[]
                             };
                             Pinturas.AddLast(pintura);
@@ -91,8 +90,7 @@ namespace Gestión_Museo
                                    $"Artista: {pintura.Autor}\n" +
                                    $"Año: {pintura.Año}\n" +
                                    $"Género: {pintura.Genero}\n" +
-                                   $"Dimensiones: {pintura.Dimensiones}\n" +
-                                   $"Descripción: {pintura.Descripcion}";
+                                   $"Dimensiones: {pintura.Dimensiones}\n";
 
             if (pintura.Imagen != null && pintura.Imagen.Length > 0)
             {
@@ -145,8 +143,8 @@ namespace Gestión_Museo
 
                     bool esNumerico = int.TryParse(terminoBusqueda, out int idBusqueda);
                     string query = esNumerico
-                        ? "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Descripcion, Imagen FROM Pinturas WHERE Id_Obra = @Busqueda"
-                        : "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Descripcion, Imagen FROM Pinturas WHERE LOWER(Titulo_Obra) LIKE @Busqueda";
+                        ? "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas WHERE Id_Obra = @Busqueda"
+                        : "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas WHERE LOWER(Titulo_Obra) LIKE @Busqueda";
 
                     MySqlCommand comando = new MySqlCommand(query, conexion);
 
@@ -197,6 +195,10 @@ namespace Gestión_Museo
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }
+
+        private void btnfiltro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-

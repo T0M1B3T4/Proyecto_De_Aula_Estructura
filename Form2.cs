@@ -86,7 +86,7 @@ namespace Gestión_Museo
         {
             try
             {
-                using (MySqlConnection conexionBD = new MySqlConnection("tu_cadena_de_conexion"))
+                using (MySqlConnection conexionBD = new MySqlConnection("server=localhost;database=museo;uid=root;pwd=1234;"))
                 {
                     conexionBD.Open();
                     string query = @"INSERT INTO Pinturas (Titulo_Obra, Autor, Año, Genero, Dimensiones, Fecha_Ingreso, Movimiento_Artistico, Imagen) 
@@ -122,7 +122,7 @@ namespace Gestión_Museo
                     return;
                 }
 
-                using (MySqlConnection conexionBD = new MySqlConnection("tu_cadena_de_conexion"))
+                using (MySqlConnection conexionBD = new MySqlConnection("server=localhost;database=museo;uid=root;pwd=1234;"))
                 {
                     conexionBD.Open();
                     string query = "SELECT Imagen FROM Pinturas WHERE Titulo_Obra = @Titulo";
@@ -167,7 +167,7 @@ namespace Gestión_Museo
 
                 if (resultado == DialogResult.Yes)
                 {
-                    using (MySqlConnection conexionBD = new MySqlConnection("tu_cadena_de_conexion"))
+                    using (MySqlConnection conexionBD = new MySqlConnection("server=localhost;database=museo;uid=root;pwd=1234;"))
                     {
                         conexionBD.Open();
 

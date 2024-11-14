@@ -149,5 +149,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lupa 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filtro.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
