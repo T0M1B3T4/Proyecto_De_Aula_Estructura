@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Gestión_Museo;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Gestión_Museo
 {
@@ -12,14 +12,13 @@ namespace Gestión_Museo
     {
         private LinkedList<Pintura> Pinturas;
         private LinkedListNode<Pintura> Pintura_Actual;
-        private string conexionBD = "server=localhost;database=museo;uid=root;pwd=1234;"; // Conexión a la base de datos
+        private string ConnectionString = "Data Source=T0M1_PC\\SQLEXPRESS;Initial Catalog=pinturas;Integrated Security=True;Encrypt=False"; // Conexión a la base de datos
 
         public FrmUsuarioFinal()
         {
             InitializeComponent();
             Pinturas = new LinkedList<Pintura>();
         }
-
         public class Pintura
         {
             public int Id_Obra { get; set; }
@@ -31,24 +30,20 @@ namespace Gestión_Museo
             public string Descripcion { get; set; }
             public byte[] Imagen { get; set; } // Imagen como arreglo de bytes
         }
-
         private void FrmUsuarioFinal_Load(object sender, EventArgs e)
-        {
-            CargarPinturas();
-        }
-
+        {  CargarPinturas(); }
         private void CargarPinturas()
         {
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;database=museo;uid=root;pwd=1234;"))
+                using (SqlConnection conexion = new SqlConnection(ConnectionString))
                 {
                     conexion.Open();
 
-                    string query = "SELECT Id_Obra, Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas";
-                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    string query = "SELECT From ObrasArte Id_Obra, Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas";
+                    SqlCommand comando = new SqlCommand(query, conexion);
 
-                    using (MySqlDataReader reader = comando.ExecuteReader())
+                    using (SqlDataReader reader = comando.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -66,23 +61,19 @@ namespace Gestión_Museo
                         }
                     }
                 }
-
                 if (Pinturas.Count > 0)
                 {
                     Pintura_Actual = Pinturas.First;
                     MostrarPintura(Pintura_Actual.Value);
                 }
                 else
-                {
                     MessageBox.Show("No se encontraron pinturas en la base de datos.");
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar las pinturas: " + ex.Message);
             }
         }
-
         private void MostrarPintura(Pintura pintura)
         {
             txtNombreSeleccionado.Text = pintura.Titulo_Obra;
@@ -100,11 +91,8 @@ namespace Gestión_Museo
                 }
             }
             else
-            {
                 pictureBoxPintura.Image = null;
-            }
         }
-
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             if (Pintura_Actual?.Next != null)
@@ -113,11 +101,8 @@ namespace Gestión_Museo
                 MostrarPintura(Pintura_Actual.Value);
             }
             else
-            {
                 MessageBox.Show("No hay más pinturas.");
-            }
         }
-
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             if (Pintura_Actual?.Previous != null)
@@ -126,38 +111,29 @@ namespace Gestión_Museo
                 MostrarPintura(Pintura_Actual.Value);
             }
             else
-            {
                 MessageBox.Show("No hay pinturas anteriores.");
-            }
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string terminoBusqueda = txtBusqueda.Text.Trim().ToLower();
 
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection(conexionBD))
+                using (SqlConnection conexion = new SqlConnection(ConnectionString))
                 {
                     conexion.Open();
 
                     bool esNumerico = int.TryParse(terminoBusqueda, out int idBusqueda);
                     string query = esNumerico
-                        ? "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas WHERE Id_Obra = @Busqueda"
-                        : "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM Pinturas WHERE LOWER(Titulo_Obra) LIKE @Busqueda";
+                        ? "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM ObrasArte WHERE Titulo_Obra = @Busqueda"
+                        : "SELECT Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen FROM ObrasArte WHERE LOWER(Titulo_Obra) LIKE @Busqueda";
 
-                    MySqlCommand comando = new MySqlCommand(query, conexion);
-
+                    SqlCommand comando = new SqlCommand(query, conexion);
                     if (esNumerico)
-                    {
                         comando.Parameters.AddWithValue("@Busqueda", idBusqueda);
-                    }
                     else
-                    {
                         comando.Parameters.AddWithValue("@Busqueda", "%" + terminoBusqueda + "%");
-                    }
-
-                    using (MySqlDataReader reader = comando.ExecuteReader())
+                    using (SqlDataReader reader = comando.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -176,9 +152,7 @@ namespace Gestión_Museo
                                 MostrarPintura(Pintura_Actual.Value);
                             }
                             else
-                            {
                                 MessageBox.Show("Pintura no encontrada.");
-                            }
                         }
                     }
                 }
@@ -188,17 +162,12 @@ namespace Gestión_Museo
                 MessageBox.Show("Error al buscar la pintura: " + ex.Message);
             }
         }
-
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }
-
-        private void btnfiltro_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void btnfiltro_Click(object sender, EventArgs e) { }
     }
 }

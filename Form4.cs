@@ -6,11 +6,11 @@ namespace Gestión_Museo
 {
     public partial class Registro : Form
     {
+        private const string ConnectionString = "Data Source=T0M1_PC\\SQLEXPRESS;Initial Catalog=pinturas;Integrated Security=True;Encrypt=False";
         public Registro()
         {
             InitializeComponent();
         }
-
         private void btnConfirmarNuevo_Click(object sender, EventArgs e)
         {
             string usuario = txtNuevoUsuario.Text;
@@ -24,9 +24,7 @@ namespace Gestión_Museo
                 camposVacios = true;
             }
             else
-            {
                 txtNuevoUsuario.BackColor = System.Drawing.Color.White;
-            }
 
             if (string.IsNullOrEmpty(contrasena))
             {
@@ -34,9 +32,7 @@ namespace Gestión_Museo
                 camposVacios = true;
             }
             else
-            {
                 txtContrasenaNueva.BackColor = System.Drawing.Color.White;
-            }
 
             if (string.IsNullOrEmpty(confirmarContrasena))
             {
@@ -44,9 +40,7 @@ namespace Gestión_Museo
                 camposVacios = true;
             }
             else
-            {
                 txtConfirmarContrasena.BackColor = System.Drawing.Color.White;
-            }
 
             if (camposVacios)
             {
@@ -76,45 +70,36 @@ namespace Gestión_Museo
                 this.Close();
             }
             else
-            {
                 MessageBox.Show("Hubo un error al registrar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
-
         private bool UsuarioYaExiste(string usuario)
         {
-            string connectionString = "server=localhost;database=museo;uid=root;pwd=1234;";  // Cambia esto por tu cadena de conexión real
-            string query = "SELECT COUNT(*) FROM Usuarios WHERE nombre = @nombre";
+            string query = "SELECT COUNT(*) FROM Usuarios WHERE Nombre = @nombre";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection Conexion = new SqlConnection(ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@usuario", usuario);
+                Conexion.Open();
+                SqlCommand cmd = new SqlCommand(query, Conexion);
+                cmd.Parameters.AddWithValue("nombre", usuario);
 
-                conn.Open();
                 int count = (int)cmd.ExecuteScalar();
-                conn.Close();
-
-                return count > 0; // Si el usuario existe, devuelve true
+                return count > 0;
             }
         }
-
         private bool RegistrarNuevoUsuario(string usuario, string contrasena)
         {
-            string connectionString = "server=localhost;database=museo;uid=root;pwd=1234;";  // Cambia esto por tu cadena de conexión real
-            string query = "INSERT INTO Usuarios (nombre, Contrasena) VALUES (@nombre, @contrasena)";
+            string query = "INSERT INTO Usuarios (Nombre, Contrasena) VALUES (@nombre, @contrasena)";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection Conexion = new SqlConnection(ConnectionString))
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    SqlCommand cmd = new SqlCommand(query, Conexion);
+                    cmd.Parameters.AddWithValue("@nombre", usuario);
                     cmd.Parameters.AddWithValue("@contrasena", contrasena); // Aquí puedes cifrar la contraseña antes de insertarla, si lo deseas
 
-                    conn.Open();
+                    Conexion.Open();
                     cmd.ExecuteNonQuery();
-                    conn.Close();
 
                     return true;  
                 }
@@ -129,7 +114,6 @@ namespace Gestión_Museo
         {
             // Cerrar el formulario actual
             this.Close();
-
             // Mostrar el formulario FrmLogin
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();

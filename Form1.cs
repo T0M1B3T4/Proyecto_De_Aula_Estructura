@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Gestión_Museo
 {
     public partial class FrmLogin : Form
     {
+        private const string ConnectionString = "Data Source=T0M1_PC\\SQLEXPRESS;Initial Catalog=pinturas;Integrated Security=True;Encrypt=False";
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -15,48 +17,104 @@ namespace Gestión_Museo
 
         public class Museo
         {
-            // Credenciales del personal del museo
-            private Dictionary<string, string> usuarios = new Dictionary<string, string>
+            private Dictionary<string, (string contrasena, bool esAdministrador)> usuariosLocales = new Dictionary<string, (string, bool)>
             {
-                { "Dario Borja Gamboa", "202110395" },
-                { "Tomás Betancur Delgado", "202210279" },
-                { "Samuel Bastidas Pamplona", "202210320" },
+                { "Dario Borja Gamboa", ("202110395", true) },
+                { "Tomás Betancur Delgado", ("202210279", false) },
+                { "Samuel Bastidas Pamplona", ("202210320", false) },
             };
-            public bool ValidarUsuario(string nombre, string contrasena)
-            {
-                if (usuarios.ContainsKey(nombre) && usuarios[nombre] == contrasena)
-                    return true;
 
+            public (bool valido, bool esAdministrador) ValidarUsuario(string nombre, string contrasena)
+            {
+                // Verificar en usuarios locales
+                if (usuariosLocales.ContainsKey(nombre))
+                {
+                    (string contrasenaGuardada, bool esAdministrador) = usuariosLocales[nombre];
+                    if (contrasenaGuardada == contrasena)
+                    {
+                        return (true, esAdministrador);
+                    }
+                }
+
+                // Verificar en la base de datos
                 return ValidarUsuarioEnBaseDeDatos(nombre, contrasena);
             }
-            private bool ValidarUsuarioEnBaseDeDatos(string nombre, string contrasena)
-            {
-                // Definir la cadena de conexión a la base de datos
-                string connectionString = "server=localhost;database=museo;uid=root;pwd=1234;";
 
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+            private (bool valido, bool esAdministrador) ValidarUsuarioEnBaseDeDatos(string nombre, string contrasena)
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     try
                     {
                         connection.Open();
-                        string query = "SELECT COUNT(*) FROM usuarios WHERE nombre = @nombre AND contrasena = @contrasena";
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        string query = "SELECT RolAdministrador FROM Usuarios WHERE nombre = @nombre AND contrasena = @contrasena";
+                        using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            // Definir los parámetros para evitar SQL injection
                             command.Parameters.AddWithValue("@nombre", nombre);
                             command.Parameters.AddWithValue("@contrasena", contrasena);
 
-                            int count = Convert.ToInt32(command.ExecuteScalar());
-                            return count > 0; 
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    // Leer RolAdministrador como booleano
+                                    bool esAdministrador = reader.GetBoolean(0);
+                                    return (true, esAdministrador);
+                                }
+                            }
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error al conectar con la base de datos: " + ex.Message);
-                        return false;
                     }
                 }
+                return (false, false);
             }
+        }
+
+        private void btnEntrar1_Click(object sender, EventArgs e)
+        {
+            // Verificar campos vacíos
+            if (string.IsNullOrWhiteSpace(txtUsuario1.Text) || string.IsNullOrWhiteSpace(txtContrasena1.Text))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string usuario = txtUsuario1.Text.Trim();
+            string contrasena = txtContrasena1.Text;
+
+            Museo museo = new Museo();
+            (bool valido, bool esAdministrador) resultado = museo.ValidarUsuario(usuario, contrasena);
+
+            if (resultado.valido)
+            {
+                // Redirigir según el rol del usuario
+                if (resultado.esAdministrador)
+                {
+                    FrmPersonal frmPersonal = new FrmPersonal();
+                    this.Hide();
+                    frmPersonal.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    FrmUsuarioFinal frmUsuarioFinal = new FrmUsuarioFinal();
+                    this.Hide();
+                    frmUsuarioFinal.ShowDialog();
+                    this.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void chkMostrarContrasena1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasena1.PasswordChar = txtContrasena1.PasswordChar == '*' ? '\0' : '*';
         }
 
         private void btnSalir1_Click(object sender, EventArgs e)
@@ -64,77 +122,13 @@ namespace Gestión_Museo
             Application.Exit();
         }
 
-        private void chkMostrarContrasena1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (txtContrasena1.PasswordChar == '*')
-                txtContrasena1.PasswordChar = '\0';
-            else if (txtContrasena1.PasswordChar == '\0')
-                txtContrasena1.PasswordChar = '*';
-        }
-
-        private void btnEntrar1_Click(object sender, EventArgs e)
-        {
-            bool camposVacios = false;
-
-            if (string.IsNullOrEmpty(txtUsuario1.Text))
-            {
-                txtUsuario1.BackColor = System.Drawing.Color.Red;
-                camposVacios = true;
-            }
-            else
-            {
-                txtUsuario1.BackColor = System.Drawing.Color.White;
-            }
-
-            if (string.IsNullOrEmpty(txtContrasena1.Text))
-            {
-                txtContrasena1.BackColor = System.Drawing.Color.Red;
-                camposVacios = true;
-            }
-            else
-            {
-                txtContrasena1.BackColor = System.Drawing.Color.White;
-            }
-
-            if (camposVacios)
-            {
-                MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            FrmPersonal form2 = new FrmPersonal();
-            FrmUsuarioFinal form3 = new FrmUsuarioFinal();
-            Museo museo = new Museo();
-           
-
-            if (museo.ValidarUsuario(txtUsuario1.Text, txtContrasena1.Text))
-            {
-                form2.ShowDialog();
-            }
-            else
-            {
-                try
-                {
-                    // Este Try-Catch verifica que en el caso de que el visitante ponga un string con forma de correo, lo deje ingresar al formulario correspondiente
-                    string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-                    if (!Regex.IsMatch(txtUsuario1.Text, patronCorreo))
-                        throw new Exception("Usuario o Contraseña no es válida.");
-
-                    form3.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Registro CrearUsuario = new Registro();
-            CrearUsuario.StartPosition = FormStartPosition.CenterScreen;
-            CrearUsuario.ShowDialog();
+            Registro registroForm = new Registro();
+            registroForm.StartPosition = FormStartPosition.CenterScreen;
+            registroForm.ShowDialog();
+            this.Show();
         }
     }
 }
