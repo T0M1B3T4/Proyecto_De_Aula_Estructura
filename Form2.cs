@@ -110,23 +110,38 @@ namespace Gestión_Museo
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+                if (string.IsNullOrWhiteSpace(txtTitulo.Text) && string.IsNullOrWhiteSpace(txtId.Text))
                 {
-                    MessageBox.Show("Por favor, ingrese un título de pintura.");
+                    MessageBox.Show("Por favor, ingrese el ID de la obra o el título de la pintura.");
                     return;
                 }
+
                 using (SqlConnection Conexion = new SqlConnection(ConnectionString))
                 {
                     Conexion.Open();
-                    string query = "SELECT Imagen FROM ObrasArte WHERE Titulo_Obra = @Titulo";
+
+                    // Consulta para obtener todos los datos de la pintura
+                    string query = "SELECT * FROM ObrasArte WHERE Titulo_Obra = @Titulo OR Id_Obra = @IdObra";
 
                     SqlCommand comando = new SqlCommand(query, Conexion);
-                    comando.Parameters.AddWithValue("@Titulo", txtTitulo.Text);
+                    comando.Parameters.AddWithValue("@Titulo", txtTitulo.Text.Trim());
+                    comando.Parameters.AddWithValue("@IdObra", string.IsNullOrWhiteSpace(txtId.Text) ? (object)DBNull.Value : int.Parse(txtId.Text.Trim()));
 
                     SqlDataReader reader = comando.ExecuteReader();
 
                     if (reader.Read())
                     {
+                        // Rellenar los campos del formulario con los datos de la obra
+                        txtId.Text = reader["Id_Obra"].ToString();
+                        txtTitulo.Text = reader["Titulo_Obra"].ToString();
+                        txtAutor.Text = reader["Autor"].ToString();
+                        txtAno.Text = reader["Año"].ToString();
+                        txtGenero.Text = reader["Genero"].ToString();
+                        txtDimensiones.Text = reader["Dimensiones"].ToString();
+                        txtFechaIngreso.Text = Convert.ToDateTime(reader["Fecha_Ingreso"]).ToString("yyyy-MM-dd");
+                        txtMovimiento.Text = reader["Movimiento_Artistico"].ToString();
+
+                        // Convertir la imagen de bytes a Image y mostrarla
                         byte[] imagenBytes = (byte[])reader["Imagen"];
                         using (MemoryStream ms = new MemoryStream(imagenBytes))
                         {
@@ -135,7 +150,9 @@ namespace Gestión_Museo
                         }
                     }
                     else
+                    {
                         MessageBox.Show("Pintura no encontrada.");
+                    }
                 }
             }
             catch (Exception ex)

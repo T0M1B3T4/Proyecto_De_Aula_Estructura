@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonal));
+            this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.grpInformacion = new System.Windows.Forms.GroupBox();
             this.GrpBotones = new System.Windows.Forms.GroupBox();
+            this.Salir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnEliminar_Pintura = new System.Windows.Forms.Button();
@@ -54,16 +57,21 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.pctImagen = new System.Windows.Forms.PictureBox();
-            this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.Salir = new System.Windows.Forms.Button();
             this.grpInformacion.SuspendLayout();
             this.GrpBotones.SuspendLayout();
             this.grpInfo_Pintura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).BeginInit();
             this.SuspendLayout();
             // 
+            // ofd
+            // 
+            this.ofd.FileName = "openFileDialog1";
+            this.ofd.Filter = "Archivos De Imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            // 
             // grpInformacion
             // 
+            this.grpInformacion.BackgroundImage = global::Gestión_Museo.Properties.Resources.FONDO_2;
+            this.grpInformacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.grpInformacion.Controls.Add(this.GrpBotones);
             this.grpInformacion.Controls.Add(this.grpInfo_Pintura);
             this.grpInformacion.Controls.Add(this.pctImagen);
@@ -88,6 +96,17 @@
             this.GrpBotones.TabIndex = 8;
             this.GrpBotones.TabStop = false;
             this.GrpBotones.Text = "Menú";
+            // 
+            // Salir
+            // 
+            this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Salir.Location = new System.Drawing.Point(72, 90);
+            this.Salir.Name = "Salir";
+            this.Salir.Size = new System.Drawing.Size(131, 26);
+            this.Salir.TabIndex = 8;
+            this.Salir.Text = "Salir";
+            this.Salir.UseVisualStyleBackColor = true;
+            this.Salir.Click += new System.EventHandler(this.Salir_Click);
             // 
             // btnGuardar
             // 
@@ -314,31 +333,16 @@
             this.pctImagen.TabIndex = 4;
             this.pctImagen.TabStop = false;
             // 
-            // ofd
-            // 
-            this.ofd.FileName = "openFileDialog1";
-            this.ofd.Filter = "Archivos De Imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-            // 
-            // Salir
-            // 
-            this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Salir.Location = new System.Drawing.Point(72, 90);
-            this.Salir.Name = "Salir";
-            this.Salir.Size = new System.Drawing.Size(131, 26);
-            this.Salir.TabIndex = 8;
-            this.Salir.Text = "Salir";
-            this.Salir.UseVisualStyleBackColor = true;
-            this.Salir.Click += new System.EventHandler(this.Salir_Click);
-            // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(761, 484);
             this.Controls.Add(this.grpInformacion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPersonal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Personal Museo";
+            this.Text = "P E R S O N A L  D E L  M U S E O";
             this.Load += new System.EventHandler(this.FrmPersonal_Load);
             this.grpInformacion.ResumeLayout(false);
             this.GrpBotones.ResumeLayout(false);

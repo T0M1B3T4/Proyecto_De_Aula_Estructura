@@ -31,7 +31,7 @@ namespace Gestión_Museo
             public byte[] Imagen { get; set; } // Imagen como arreglo de bytes
         }
         private void FrmUsuarioFinal_Load(object sender, EventArgs e)
-        {  CargarPinturas(); }
+        { CargarPinturas(); }
         private void CargarPinturas()
         {
             try
@@ -168,6 +168,70 @@ namespace Gestión_Museo
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }
-        private void btnfiltro_Click(object sender, EventArgs e) { }
+        private void btnfiltro_Click(object sender, EventArgs e)
+        {
+            string generoSeleccionado = cbCategoria.SelectedItem?.ToString(); // Obtiene el género seleccionado
+
+            if (string.IsNullOrEmpty(generoSeleccionado))
+            {
+                MessageBox.Show("Por favor, selecciona un género antes de filtrar.");
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(ConnectionString))
+                {
+                    conexion.Open();
+
+                    string query = "SELECT Id_Obra, Titulo_Obra, Autor, Año, Genero, Dimensiones, Imagen " +
+                                   "FROM ObrasArte WHERE Genero = @Genero";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@Genero", generoSeleccionado);
+
+                    Pinturas.Clear(); // Limpia la lista de pinturas
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Pintura pintura = new Pintura
+                            {
+                                Id_Obra = Convert.ToInt32(reader["Id_Obra"]),
+                                Titulo_Obra = reader["Titulo_Obra"].ToString(),
+                                Autor = reader["Autor"].ToString(),
+                                Año = Convert.ToInt32(reader["Año"]),
+                                Genero = reader["Genero"].ToString(),
+                                Dimensiones = reader["Dimensiones"].ToString(),
+                                Imagen = reader["Imagen"] as byte[]
+                            };
+                            Pinturas.AddLast(pintura);
+                        }
+                    }
+                }
+
+                if (Pinturas.Count > 0)
+                {
+                    Pintura_Actual = Pinturas.First; // Configura la primera pintura como actual
+                    MostrarPintura(Pintura_Actual.Value);
+                }
+                else
+                {
+                    Pintura_Actual = null;
+                    pictureBoxPintura.Image = null;
+                    txtNombreSeleccionado.Text = string.Empty;
+                    txtInfoCompleta.Text = string.Empty;
+                    MessageBox.Show($"No se encontraron pinturas del género {generoSeleccionado}.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar las pinturas: " + ex.Message);
+            }
+        }
     }
 }
+
+
+        

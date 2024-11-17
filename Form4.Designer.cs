@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.grpNuevoUsuario = new System.Windows.Forms.GroupBox();
             this.btnConfirmarNuevo = new System.Windows.Forms.Button();
             this.btnCarcelarUsuario = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             // 
             // grpNuevoUsuario
             // 
+            this.grpNuevoUsuario.BackgroundImage = global::Gestión_Museo.Properties.Resources.FONDO_3;
+            this.grpNuevoUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.grpNuevoUsuario.Controls.Add(this.btnConfirmarNuevo);
             this.grpNuevoUsuario.Controls.Add(this.btnCarcelarUsuario);
             this.grpNuevoUsuario.Controls.Add(this.txtConfirmarContrasena);
@@ -136,8 +139,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 411);
             this.Controls.Add(this.grpNuevoUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registro";
-            this.Text = "Form4";
+            this.Text = "R E G I S T R O  D E  U S U A R I O";
             this.grpNuevoUsuario.ResumeLayout(false);
             this.grpNuevoUsuario.PerformLayout();
             this.ResumeLayout(false);

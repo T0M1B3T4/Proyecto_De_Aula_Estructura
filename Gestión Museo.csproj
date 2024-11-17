@@ -155,5 +155,17 @@
   <ItemGroup>
     <None Include="Resources\filtro.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO 4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
