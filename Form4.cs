@@ -118,5 +118,11 @@ namespace Gestión_Museo
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }
+
+        private void chkMostrarContrasena_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasenaNueva.PasswordChar = txtContrasenaNueva.PasswordChar == '*' ? '\0' : '*';
+            txtConfirmarContrasena.PasswordChar = txtConfirmarContrasena.PasswordChar == '*' ? '\0' : '*';
+        }
     }
 }

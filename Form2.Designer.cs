@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonal));
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.grpInformacion = new System.Windows.Forms.GroupBox();
@@ -38,6 +39,7 @@
             this.btnEliminar_Pintura = new System.Windows.Forms.Button();
             this.btnAñadir_Pintura = new System.Windows.Forms.Button();
             this.grpInfo_Pintura = new System.Windows.Forms.GroupBox();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.lblImagePath = new System.Windows.Forms.Label();
             this.txtImagePath = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -56,6 +58,7 @@
             this.txtAutor = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.tipLimpiarCampos = new System.Windows.Forms.ToolTip(this.components);
             this.pctImagen = new System.Windows.Forms.PictureBox();
             this.grpInformacion.SuspendLayout();
             this.GrpBotones.SuspendLayout();
@@ -78,7 +81,7 @@
             this.grpInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInformacion.Location = new System.Drawing.Point(12, 12);
             this.grpInformacion.Name = "grpInformacion";
-            this.grpInformacion.Size = new System.Drawing.Size(737, 461);
+            this.grpInformacion.Size = new System.Drawing.Size(737, 514);
             this.grpInformacion.TabIndex = 0;
             this.grpInformacion.TabStop = false;
             this.grpInformacion.Enter += new System.EventHandler(this.grpInformacion_Enter);
@@ -90,7 +93,7 @@
             this.GrpBotones.Controls.Add(this.btnCargar);
             this.GrpBotones.Controls.Add(this.btnEliminar_Pintura);
             this.GrpBotones.Controls.Add(this.btnAñadir_Pintura);
-            this.GrpBotones.Location = new System.Drawing.Point(16, 330);
+            this.GrpBotones.Location = new System.Drawing.Point(16, 366);
             this.GrpBotones.Name = "GrpBotones";
             this.GrpBotones.Size = new System.Drawing.Size(297, 131);
             this.GrpBotones.TabIndex = 8;
@@ -154,6 +157,7 @@
             // 
             // grpInfo_Pintura
             // 
+            this.grpInfo_Pintura.Controls.Add(this.btnLimpiarCampos);
             this.grpInfo_Pintura.Controls.Add(this.lblImagePath);
             this.grpInfo_Pintura.Controls.Add(this.txtImagePath);
             this.grpInfo_Pintura.Controls.Add(this.txtId);
@@ -175,10 +179,23 @@
             this.grpInfo_Pintura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInfo_Pintura.Location = new System.Drawing.Point(331, 13);
             this.grpInfo_Pintura.Name = "grpInfo_Pintura";
-            this.grpInfo_Pintura.Size = new System.Drawing.Size(386, 424);
+            this.grpInfo_Pintura.Size = new System.Drawing.Size(386, 484);
             this.grpInfo_Pintura.TabIndex = 5;
             this.grpInfo_Pintura.TabStop = false;
             this.grpInfo_Pintura.Text = "Información Pintura";
+            this.tipLimpiarCampos.SetToolTip(this.grpInfo_Pintura, "Es necesario despues de hacer una consulta, darle al botón de limpiar campos para" +
+        " realizar otra");
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(18, 426);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(349, 30);
+            this.btnLimpiarCampos.TabIndex = 9;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
             // lblImagePath
             // 
@@ -324,11 +341,16 @@
             this.txtTitulo.Size = new System.Drawing.Size(197, 21);
             this.txtTitulo.TabIndex = 0;
             // 
+            // tipLimpiarCampos
+            // 
+            this.tipLimpiarCampos.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tipLimpiarCampos.ToolTipTitle = "Limpiar Campos";
+            // 
             // pctImagen
             // 
             this.pctImagen.Location = new System.Drawing.Point(16, 19);
             this.pctImagen.Name = "pctImagen";
-            this.pctImagen.Size = new System.Drawing.Size(297, 292);
+            this.pctImagen.Size = new System.Drawing.Size(297, 329);
             this.pctImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctImagen.TabIndex = 4;
             this.pctImagen.TabStop = false;
@@ -337,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 484);
+            this.ClientSize = new System.Drawing.Size(761, 538);
             this.Controls.Add(this.grpInformacion);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPersonal";
@@ -356,7 +378,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpInformacion;
-        private System.Windows.Forms.PictureBox pctImagen;
         private System.Windows.Forms.Button btnEliminar_Pintura;
         private System.Windows.Forms.Button btnAñadir_Pintura;
         private System.Windows.Forms.GroupBox grpInfo_Pintura;
@@ -383,5 +404,8 @@
         private System.Windows.Forms.Label lblImagePath;
         private System.Windows.Forms.TextBox txtImagePath;
         private System.Windows.Forms.Button Salir;
+        private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.ToolTip tipLimpiarCampos;
+        private System.Windows.Forms.PictureBox pctImagen;
     }
 }

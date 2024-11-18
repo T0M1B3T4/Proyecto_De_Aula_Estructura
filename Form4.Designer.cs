@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblContrasena1 = new System.Windows.Forms.Label();
             this.lblUsuario1 = new System.Windows.Forms.Label();
+            this.chkMostrarContrasena = new System.Windows.Forms.CheckBox();
             this.grpNuevoUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             // 
             this.grpNuevoUsuario.BackgroundImage = global::Gestión_Museo.Properties.Resources.FONDO_3;
             this.grpNuevoUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.grpNuevoUsuario.Controls.Add(this.chkMostrarContrasena);
             this.grpNuevoUsuario.Controls.Add(this.btnConfirmarNuevo);
             this.grpNuevoUsuario.Controls.Add(this.btnCarcelarUsuario);
             this.grpNuevoUsuario.Controls.Add(this.txtConfirmarContrasena);
@@ -86,6 +88,7 @@
             // 
             this.txtConfirmarContrasena.Location = new System.Drawing.Point(61, 244);
             this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
+            this.txtConfirmarContrasena.PasswordChar = '*';
             this.txtConfirmarContrasena.Size = new System.Drawing.Size(301, 20);
             this.txtConfirmarContrasena.TabIndex = 9;
             // 
@@ -93,6 +96,7 @@
             // 
             this.txtContrasenaNueva.Location = new System.Drawing.Point(61, 157);
             this.txtContrasenaNueva.Name = "txtContrasenaNueva";
+            this.txtContrasenaNueva.PasswordChar = '*';
             this.txtContrasenaNueva.Size = new System.Drawing.Size(301, 20);
             this.txtContrasenaNueva.TabIndex = 8;
             // 
@@ -133,6 +137,17 @@
             this.lblUsuario1.TabIndex = 2;
             this.lblUsuario1.Text = "Usuario";
             // 
+            // chkMostrarContrasena
+            // 
+            this.chkMostrarContrasena.AutoSize = true;
+            this.chkMostrarContrasena.Location = new System.Drawing.Point(231, 280);
+            this.chkMostrarContrasena.Name = "chkMostrarContrasena";
+            this.chkMostrarContrasena.Size = new System.Drawing.Size(136, 17);
+            this.chkMostrarContrasena.TabIndex = 12;
+            this.chkMostrarContrasena.Text = "Mostrar Contraseña";
+            this.chkMostrarContrasena.UseVisualStyleBackColor = true;
+            this.chkMostrarContrasena.CheckedChanged += new System.EventHandler(this.chkMostrarContrasena_CheckedChanged);
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,5 +174,6 @@
         private System.Windows.Forms.TextBox txtConfirmarContrasena;
         private System.Windows.Forms.TextBox txtContrasenaNueva;
         private System.Windows.Forms.TextBox txtNuevoUsuario;
+        private System.Windows.Forms.CheckBox chkMostrarContrasena;
     }
 }

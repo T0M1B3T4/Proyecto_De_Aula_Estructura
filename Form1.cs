@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace Gestión_Museo
 {
@@ -14,121 +14,104 @@ namespace Gestión_Museo
         {
             InitializeComponent();
         }
-
         public class Museo
         {
-            private Dictionary<string, (string contrasena, bool esAdministrador)> usuariosLocales = new Dictionary<string, (string, bool)>
+            private Dictionary<string, string> usuarios = new Dictionary<string, string>
             {
-                { "Dario Borja Gamboa", ("202110395", true) },
-                { "Tomás Betancur Delgado", ("202210279", false) },
-                { "Samuel Bastidas Pamplona", ("202210320", false) },
+                { "Darío Borja Gamboa", "202110395" },
+                { "Tomás Betancur Delgado", "202210279" },
+                { "Samuel Bastidas Pamplona", "202210320" },
             };
 
-            public (bool valido, bool esAdministrador) ValidarUsuario(string nombre, string contrasena)
+            public string ValidarUsuarioYObtenerRol(string nombre, string contrasena)
             {
-                // Verificar en usuarios locales
-                if (usuariosLocales.ContainsKey(nombre))
+                // Primero, validamos si el usuario es uno de los locales con rol "Admin"
+                if (usuarios.ContainsKey(nombre) && usuarios[nombre] == contrasena)
                 {
-                    (string contrasenaGuardada, bool esAdministrador) = usuariosLocales[nombre];
-                    if (contrasenaGuardada == contrasena)
-                    {
-                        return (true, esAdministrador);
-                    }
+                    return "Admin"; // Si es un usuario local, se asume rol "Admin"
                 }
 
-                // Verificar en la base de datos
-                return ValidarUsuarioEnBaseDeDatos(nombre, contrasena);
-            }
+                // Si no es un usuario local, se valida en la base de datos para obtener el rol
+                string rol = ObtenerRolUsuario(nombre, contrasena);
 
-            private (bool valido, bool esAdministrador) ValidarUsuarioEnBaseDeDatos(string nombre, string contrasena)
+                // Si el rol obtenido no es nulo, se devuelve ese rol
+                return rol != null ? rol : "Usuario"; // Si no se obtiene un rol, se devuelve "Usuario" por defecto
+            }
+            private string ObtenerRolUsuario(string nombre, string contrasena)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     try
                     {
                         connection.Open();
-                        string query = "SELECT RolAdministrador FROM Usuarios WHERE nombre = @nombre AND contrasena = @contrasena";
+                        string query = "SELECT Rol FROM Usuarios WHERE Nombre = @nombre AND contrasena = @contrasena";
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            command.Parameters.AddWithValue("@nombre", nombre);
-                            command.Parameters.AddWithValue("@contrasena", contrasena);
+                            command.Parameters.AddWithValue("@nombre", nombre.Trim());
+                            command.Parameters.AddWithValue("@contrasena", contrasena.Trim());
 
-                            using (SqlDataReader reader = command.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    // Leer RolAdministrador como booleano
-                                    bool esAdministrador = reader.GetBoolean(0);
-                                    return (true, esAdministrador);
-                                }
-                            }
+                            var rol = command.ExecuteScalar();
+                            return rol != null ? rol.ToString() : null;
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error al conectar con la base de datos: " + ex.Message);
+                        return null;
                     }
                 }
-                return (false, false);
             }
         }
-
         private void btnEntrar1_Click(object sender, EventArgs e)
         {
-            // Verificar campos vacíos
-            if (string.IsNullOrWhiteSpace(txtUsuario1.Text) || string.IsNullOrWhiteSpace(txtContrasena1.Text))
+            // Validación de campos vacíos
+            if (string.IsNullOrEmpty(txtUsuario1.Text) || string.IsNullOrEmpty(txtContrasena1.Text))
             {
                 MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUsuario1.BackColor = string.IsNullOrEmpty(txtUsuario1.Text) ? System.Drawing.Color.Red : System.Drawing.Color.White;
+                txtContrasena1.BackColor = string.IsNullOrEmpty(txtContrasena1.Text) ? System.Drawing.Color.Red : System.Drawing.Color.White;
                 return;
             }
-
-            string usuario = txtUsuario1.Text.Trim();
-            string contrasena = txtContrasena1.Text;
-
             Museo museo = new Museo();
-            (bool valido, bool esAdministrador) resultado = museo.ValidarUsuario(usuario, contrasena);
+            string rol = museo.ValidarUsuarioYObtenerRol(txtUsuario1.Text, txtContrasena1.Text);
 
-            if (resultado.valido)
+            if (!string.IsNullOrEmpty(rol))
             {
-                // Redirigir según el rol del usuario
-                if (resultado.esAdministrador)
+                if (rol == "Admin")
                 {
-                    FrmPersonal frmPersonal = new FrmPersonal();
-                    this.Hide();
-                    frmPersonal.ShowDialog();
-                    this.Show();
+                    FrmPersonal form2 = new FrmPersonal();
+                    form2.ShowDialog();
+                }
+                else if (rol == "Usuario")
+                {
+                    FrmUsuarioFinal form3 = new FrmUsuarioFinal();
+                    form3.ShowDialog();
                 }
                 else
-                {
-                    FrmUsuarioFinal frmUsuarioFinal = new FrmUsuarioFinal();
-                    this.Hide();
-                    frmUsuarioFinal.ShowDialog();
-                    this.Show();
-                }
+                    MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
-                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("Usuario o Contraseña no válidos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        private void chkMostrarContrasena1_CheckedChanged(object sender, EventArgs e)
-        {
-            txtContrasena1.PasswordChar = txtContrasena1.PasswordChar == '*' ? '\0' : '*';
-        }
-
         private void btnSalir1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        private void chkMostrarContrasena1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasena1.PasswordChar = txtContrasena1.PasswordChar == '*' ? '\0' : '*';
+        }
         private void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Registro registroForm = new Registro();
-            registroForm.StartPosition = FormStartPosition.CenterScreen;
-            registroForm.ShowDialog();
-            this.Show();
+            Registro crearUsuario = new Registro();
+            crearUsuario.StartPosition = FormStartPosition.CenterScreen;
+            crearUsuario.ShowDialog();
+        }
+
+        private void pct_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

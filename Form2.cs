@@ -10,7 +10,8 @@ namespace Gestión_Museo
 {
     public partial class FrmPersonal : Form
     {
-        private const string ConnectionString = "Data Source=T0M1_PC\\SQLEXPRESS;Initial Catalog=pinturas;Integrated Security=True;Encrypt=False";
+        private const string ConnectionString = "Data Source=T0M1_PC\\SQLEXPRESS;Initial Catalog=pinturas;Integrated Security=True;Encrypt=False;MultipleActiveResultSets=True";
+
         LinkedList<Image> Pinturas;
         LinkedListNode<Image> Pintura_Actual;
         List<Categoria> Categorias;
@@ -23,16 +24,7 @@ namespace Gestión_Museo
         }
 
         private void FrmPersonal_Load(object sender, EventArgs e) { }
-        private void btn_Siguiente_Click(object sender, EventArgs e)
-        {
-            if (Pintura_Actual?.Next != null)
-            {
-                Pintura_Actual = Pintura_Actual.Next;
-                pctImagen.Image = Pintura_Actual.Value;
-            }
-            else
-                MessageBox.Show("No hay más pinturas.");
-        }
+
         private void btnAñadir_Pintura_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog
@@ -81,7 +73,7 @@ namespace Gestión_Museo
         {
             try
             {
-                using(SqlConnection Conexion = new SqlConnection(ConnectionString))
+                using (SqlConnection Conexion = new SqlConnection(ConnectionString))
                 {
                     Conexion.Open();
                     string query = @"INSERT INTO ObrasArte (Titulo_Obra, Autor, Año, Genero, Dimensiones, Fecha_Ingreso, Movimiento_Artistico, Imagen) 
@@ -120,38 +112,43 @@ namespace Gestión_Museo
                 {
                     Conexion.Open();
 
-                    // Consulta para obtener todos los datos de la pintura
-                    string query = "SELECT * FROM ObrasArte WHERE Titulo_Obra = @Titulo OR Id_Obra = @IdObra";
+                    string query = "SELECT * FROM ObrasArte WHERE Titulo_Obra = @TituloObra OR ID = @IdObra";
 
-                    SqlCommand comando = new SqlCommand(query, Conexion);
-                    comando.Parameters.AddWithValue("@Titulo", txtTitulo.Text.Trim());
-                    comando.Parameters.AddWithValue("@IdObra", string.IsNullOrWhiteSpace(txtId.Text) ? (object)DBNull.Value : int.Parse(txtId.Text.Trim()));
-
-                    SqlDataReader reader = comando.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlCommand comando = new SqlCommand(query, Conexion))
                     {
-                        // Rellenar los campos del formulario con los datos de la obra
-                        txtId.Text = reader["Id_Obra"].ToString();
-                        txtTitulo.Text = reader["Titulo_Obra"].ToString();
-                        txtAutor.Text = reader["Autor"].ToString();
-                        txtAno.Text = reader["Año"].ToString();
-                        txtGenero.Text = reader["Genero"].ToString();
-                        txtDimensiones.Text = reader["Dimensiones"].ToString();
-                        txtFechaIngreso.Text = Convert.ToDateTime(reader["Fecha_Ingreso"]).ToString("yyyy-MM-dd");
-                        txtMovimiento.Text = reader["Movimiento_Artistico"].ToString();
+                        comando.Parameters.AddWithValue("@TituloObra", txtTitulo.Text);
+                        comando.Parameters.AddWithValue("@IdObra", txtId.Text);
 
-                        // Convertir la imagen de bytes a Image y mostrarla
-                        byte[] imagenBytes = (byte[])reader["Imagen"];
-                        using (MemoryStream ms = new MemoryStream(imagenBytes))
+                        using (SqlDataReader reader = comando.ExecuteReader())
                         {
-                            Image imagenCargada = Image.FromStream(ms);
-                            pctImagen.Image = imagenCargada;
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    // Rellenar los campos del formulario con los datos de la obra
+                                    txtId.Text = reader["ID"].ToString();
+                                    txtTitulo.Text = reader["Titulo_Obra"].ToString();
+                                    txtAutor.Text = reader["Autor"].ToString();
+                                    txtAno.Text = reader["Año"].ToString();
+                                    txtGenero.Text = reader["Genero"].ToString();
+                                    txtDimensiones.Text = reader["Dimensiones"].ToString();
+                                    txtFechaIngreso.Text = Convert.ToDateTime(reader["Fecha_Ingreso"]).ToString("yyyy-MM-dd");
+                                    txtMovimiento.Text = reader["Movimiento_Artistico"].ToString();
+
+                                    // Convertir la imagen de bytes a Image y mostrarla
+                                    if (reader["Imagen"] != DBNull.Value)
+                                    {
+                                        byte[] imagenBytes = (byte[])reader["Imagen"];
+                                        using (MemoryStream ms = new MemoryStream(imagenBytes))
+                                        {
+                                            pctImagen.Image = Image.FromStream(ms);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                                MessageBox.Show("Pintura no encontrada.");
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Pintura no encontrada.");
                     }
                 }
             }
@@ -228,6 +225,10 @@ namespace Gestión_Museo
             else
                 // Si el usuario responde que no, salir de la aplicación
                 Application.Exit();
+        }
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

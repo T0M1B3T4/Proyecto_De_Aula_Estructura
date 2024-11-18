@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuarioFinal));
             this.grpInformacionPinturas = new System.Windows.Forms.GroupBox();
+            this.pictureBoxPintura = new System.Windows.Forms.PictureBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.txtInfoCompleta = new System.Windows.Forms.RichTextBox();
             this.txtNombreSeleccionado = new System.Windows.Forms.TextBox();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.pictureBoxPintura = new System.Windows.Forms.PictureBox();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.btnfiltro = new System.Windows.Forms.PictureBox();
             this.pbBuscar = new System.Windows.Forms.PictureBox();
-            this.txtnombre = new System.Windows.Forms.TextBox();
             this.grpInformacionPinturas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPintura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnfiltro)).BeginInit();
@@ -51,13 +51,13 @@
             // 
             this.grpInformacionPinturas.BackgroundImage = global::Gestión_Museo.Properties.Resources.FONDO_4;
             this.grpInformacionPinturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.grpInformacionPinturas.Controls.Add(this.pictureBoxPintura);
             this.grpInformacionPinturas.Controls.Add(this.txtnombre);
             this.grpInformacionPinturas.Controls.Add(this.btnFinalizar);
             this.grpInformacionPinturas.Controls.Add(this.txtInfoCompleta);
             this.grpInformacionPinturas.Controls.Add(this.txtNombreSeleccionado);
             this.grpInformacionPinturas.Controls.Add(this.btnAnterior);
             this.grpInformacionPinturas.Controls.Add(this.btnSiguiente);
-            this.grpInformacionPinturas.Controls.Add(this.pictureBoxPintura);
             this.grpInformacionPinturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInformacionPinturas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.grpInformacionPinturas.Location = new System.Drawing.Point(12, 41);
@@ -65,6 +65,24 @@
             this.grpInformacionPinturas.Size = new System.Drawing.Size(757, 420);
             this.grpInformacionPinturas.TabIndex = 0;
             this.grpInformacionPinturas.TabStop = false;
+            // 
+            // pictureBoxPintura
+            // 
+            this.pictureBoxPintura.Location = new System.Drawing.Point(19, 69);
+            this.pictureBoxPintura.Name = "pictureBoxPintura";
+            this.pictureBoxPintura.Size = new System.Drawing.Size(294, 279);
+            this.pictureBoxPintura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPintura.TabIndex = 8;
+            this.pictureBoxPintura.TabStop = false;
+            // 
+            // txtnombre
+            // 
+            this.txtnombre.Location = new System.Drawing.Point(90, 21);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.ReadOnly = true;
+            this.txtnombre.Size = new System.Drawing.Size(144, 22);
+            this.txtnombre.TabIndex = 7;
+            this.txtnombre.Text = "Informaciòn Pintura";
             // 
             // btnFinalizar
             // 
@@ -96,30 +114,24 @@
             // btnAnterior
             // 
             this.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnterior.Location = new System.Drawing.Point(19, 354);
+            this.btnAnterior.Location = new System.Drawing.Point(19, 363);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(146, 30);
             this.btnAnterior.TabIndex = 2;
             this.btnAnterior.Text = "Pintura Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
             this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSiguiente.Location = new System.Drawing.Point(171, 354);
+            this.btnSiguiente.Location = new System.Drawing.Point(171, 363);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(142, 30);
             this.btnSiguiente.TabIndex = 1;
             this.btnSiguiente.Text = "Siguiente Pintura";
             this.btnSiguiente.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxPintura
-            // 
-            this.pictureBoxPintura.Location = new System.Drawing.Point(19, 58);
-            this.pictureBoxPintura.Name = "pictureBoxPintura";
-            this.pictureBoxPintura.Size = new System.Drawing.Size(294, 275);
-            this.pictureBoxPintura.TabIndex = 0;
-            this.pictureBoxPintura.TabStop = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // txtBusqueda
             // 
@@ -152,7 +164,6 @@
             this.btnfiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnfiltro.TabIndex = 14;
             this.btnfiltro.TabStop = false;
-            this.btnfiltro.Click += new System.EventHandler(this.btnfiltro_Click);
             // 
             // pbBuscar
             // 
@@ -164,15 +175,6 @@
             this.pbBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBuscar.TabIndex = 2;
             this.pbBuscar.TabStop = false;
-            // 
-            // txtnombre
-            // 
-            this.txtnombre.Location = new System.Drawing.Point(90, 21);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.ReadOnly = true;
-            this.txtnombre.Size = new System.Drawing.Size(144, 22);
-            this.txtnombre.TabIndex = 7;
-            this.txtnombre.Text = "Informaciòn Pintura";
             // 
             // FrmUsuarioFinal
             // 
@@ -188,7 +190,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUsuarioFinal";
             this.Text = "U S U A R I O";
-            this.Click += new System.EventHandler(this.btnfiltro_Click);
             this.grpInformacionPinturas.ResumeLayout(false);
             this.grpInformacionPinturas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPintura)).EndInit();
@@ -204,7 +205,6 @@
         private System.Windows.Forms.GroupBox grpInformacionPinturas;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.PictureBox pictureBoxPintura;
         private System.Windows.Forms.PictureBox pbBuscar;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.TextBox txtNombreSeleccionado;
@@ -213,5 +213,6 @@
         private System.Windows.Forms.PictureBox btnfiltro;
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.PictureBox pictureBoxPintura;
     }
 }

@@ -38,10 +38,10 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.grpLogin = new System.Windows.Forms.GroupBox();
             this.txtContrasena1 = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pct4 = new System.Windows.Forms.PictureBox();
+            this.pct3 = new System.Windows.Forms.PictureBox();
+            this.pct2 = new System.Windows.Forms.PictureBox();
+            this.pct = new System.Windows.Forms.PictureBox();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnSalir1 = new System.Windows.Forms.Button();
             this.btnEntrar1 = new System.Windows.Forms.Button();
@@ -50,10 +50,10 @@
             this.lblUsuario1 = new System.Windows.Forms.Label();
             this.txtUsuario1 = new System.Windows.Forms.TextBox();
             this.grpLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -125,10 +125,10 @@
             this.grpLogin.BackgroundImage = global::Gestión_Museo.Properties.Resources.FONDO_1;
             this.grpLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.grpLogin.Controls.Add(this.txtContrasena1);
-            this.grpLogin.Controls.Add(this.pictureBox4);
-            this.grpLogin.Controls.Add(this.pictureBox3);
-            this.grpLogin.Controls.Add(this.pictureBox2);
-            this.grpLogin.Controls.Add(this.pictureBox1);
+            this.grpLogin.Controls.Add(this.pct4);
+            this.grpLogin.Controls.Add(this.pct3);
+            this.grpLogin.Controls.Add(this.pct2);
+            this.grpLogin.Controls.Add(this.pct);
             this.grpLogin.Controls.Add(this.btnCrearUsuario);
             this.grpLogin.Controls.Add(this.btnSalir1);
             this.grpLogin.Controls.Add(this.btnEntrar1);
@@ -147,40 +147,42 @@
             // 
             this.txtContrasena1.Location = new System.Drawing.Point(118, 174);
             this.txtContrasena1.Name = "txtContrasena1";
+            this.txtContrasena1.PasswordChar = '*';
             this.txtContrasena1.Size = new System.Drawing.Size(350, 20);
             this.txtContrasena1.TabIndex = 11;
             // 
-            // pictureBox4
+            // pct4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(470, 401);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(125, 88);
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.pct4.Location = new System.Drawing.Point(470, 401);
+            this.pct4.Name = "pct4";
+            this.pct4.Size = new System.Drawing.Size(125, 88);
+            this.pct4.TabIndex = 10;
+            this.pct4.TabStop = false;
             // 
-            // pictureBox3
+            // pct3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(321, 401);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(125, 88);
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
+            this.pct3.Location = new System.Drawing.Point(321, 401);
+            this.pct3.Name = "pct3";
+            this.pct3.Size = new System.Drawing.Size(125, 88);
+            this.pct3.TabIndex = 9;
+            this.pct3.TabStop = false;
             // 
-            // pictureBox2
+            // pct2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(172, 401);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(125, 88);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
+            this.pct2.Location = new System.Drawing.Point(172, 401);
+            this.pct2.Name = "pct2";
+            this.pct2.Size = new System.Drawing.Size(125, 88);
+            this.pct2.TabIndex = 8;
+            this.pct2.TabStop = false;
             // 
-            // pictureBox1
+            // pct
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 401);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 88);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.pct.Location = new System.Drawing.Point(17, 401);
+            this.pct.Name = "pct";
+            this.pct.Size = new System.Drawing.Size(125, 88);
+            this.pct.TabIndex = 7;
+            this.pct.TabStop = false;
+            this.pct.Click += new System.EventHandler(this.pct_Click);
             // 
             // btnCrearUsuario
             // 
@@ -271,10 +273,10 @@
             this.Text = "I N G R E S O   G O A M";
             this.grpLogin.ResumeLayout(false);
             this.grpLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,10 +297,10 @@
         private System.Windows.Forms.Button btnEntrar1;
         private System.Windows.Forms.CheckBox chkMostrarContrasena1;
         private System.Windows.Forms.Button btnCrearUsuario;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pct4;
+        private System.Windows.Forms.PictureBox pct3;
+        private System.Windows.Forms.PictureBox pct2;
+        private System.Windows.Forms.PictureBox pct;
         private System.Windows.Forms.TextBox txtContrasena1;
     }
 }
