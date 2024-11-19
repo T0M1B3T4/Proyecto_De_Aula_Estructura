@@ -25,6 +25,9 @@ namespace Gestión_Museo
 
             public string ValidarUsuarioYObtenerRol(string nombre, string contrasena)
             {
+                // Complejidad promedio: O(1) para buscar en el diccionario + O(log m) para consultar la base de datos.
+                // Complejidad total: O(log m).
+
                 // Primero, validamos si el usuario es uno de los locales con rol "Admin"
                 if (usuarios.ContainsKey(nombre) && usuarios[nombre] == contrasena)
                 {
@@ -39,6 +42,9 @@ namespace Gestión_Museo
             }
             private string ObtenerRolUsuario(string nombre, string contrasena)
             {
+                // Complejidad promedio: O(log m) si las columnas están indexadas.
+                // Complejidad peor caso: O(m) si no hay índices y la base de datos tiene que recorrer toda la tabla.
+
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     try
@@ -63,7 +69,8 @@ namespace Gestión_Museo
             }
         }
         private void btnEntrar1_Click(object sender, EventArgs e)
-        {
+        {// Complejidad promedio: O(log m) dominado por la llamada a ValidarUsuario.
+
             // Validación de campos vacíos
             if (string.IsNullOrEmpty(txtUsuario1.Text) || string.IsNullOrEmpty(txtContrasena1.Text))
             {
@@ -99,10 +106,12 @@ namespace Gestión_Museo
         }
         private void chkMostrarContrasena1_CheckedChanged(object sender, EventArgs e)
         {
+            // Complejidad: O(1).
             txtContrasena1.PasswordChar = txtContrasena1.PasswordChar == '*' ? '\0' : '*';
         }
         private void btnCrearUsuario_Click(object sender, EventArgs e)
         {
+            // Complejidad: O(1).
             this.Hide();
             Registro crearUsuario = new Registro();
             crearUsuario.StartPosition = FormStartPosition.CenterScreen;
@@ -112,6 +121,11 @@ namespace Gestión_Museo
         private void pct_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void grpLogin_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

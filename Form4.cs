@@ -13,6 +13,10 @@ namespace Gestión_Museo
         }
         private void btnConfirmarNuevo_Click(object sender, EventArgs e)
         {
+            // O(1) - Verificar si los campos están vacíos
+            // O(1) - Validar que las contraseñas coincidan
+            // O(1) - Comprobar si el usuario ya existe
+            // O(1) - Registrar el nuevo usuario
             string usuario = txtNuevoUsuario.Text;
             string contrasena = txtContrasenaNueva.Text;
             string confirmarContrasena = txtConfirmarContrasena.Text;
@@ -74,6 +78,7 @@ namespace Gestión_Museo
         }
         private bool UsuarioYaExiste(string usuario)
         {
+            // O(1) - Consultar si el usuario ya existe en la base de datos
             string query = "SELECT COUNT(*) FROM Usuarios WHERE Nombre = @nombre";
 
             using (SqlConnection Conexion = new SqlConnection(ConnectionString))
@@ -88,6 +93,8 @@ namespace Gestión_Museo
         }
         private bool RegistrarNuevoUsuario(string usuario, string contrasena)
         {
+            // O(1) - Crear la consulta SQL para insertar el nuevo usuario
+            // O(1) - Ejecutar la consulta SQL
             string query = "INSERT INTO Usuarios (Nombre, Contrasena) VALUES (@nombre, @contrasena)";
 
             using (SqlConnection Conexion = new SqlConnection(ConnectionString))
@@ -112,7 +119,9 @@ namespace Gestión_Museo
         }
         private void btnCarcelarUsuario_Click(object sender, EventArgs e)
         {
+            // O(1) - Cerrar el formulario y abrir el de login
             // Cerrar el formulario actual
+        
             this.Close();
             // Mostrar el formulario FrmLogin
             FrmLogin frmLogin = new FrmLogin();
@@ -123,6 +132,11 @@ namespace Gestión_Museo
         {
             txtContrasenaNueva.PasswordChar = txtContrasenaNueva.PasswordChar == '*' ? '\0' : '*';
             txtConfirmarContrasena.PasswordChar = txtConfirmarContrasena.PasswordChar == '*' ? '\0' : '*';
+        }
+
+        private void grpNuevoUsuario_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

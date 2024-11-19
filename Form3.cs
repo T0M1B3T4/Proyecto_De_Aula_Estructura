@@ -51,6 +51,8 @@ namespace Gestión_Museo
         // Cargar pinturas desde la base de datos a la lista enlazada
         private void CargarPinturas()
         {
+            // Complejidad promedio: O(m), donde m es el número de registros en la base de datos.
+            // La operación de lectura domina la complejidad debido al bucle que recorre todos los resultados.
             try
             {
                 using (SqlConnection conexion = new SqlConnection(ConnectionString))
@@ -161,6 +163,7 @@ namespace Gestión_Museo
         // Mostrar pintura seleccionada
         private void MostrarPintura(Pintura pintura)
         {
+            // Complejidad: O(1) ya que asigna valores a los controles y procesa una única imagen.
             txtNombreSeleccionado.Text = pintura.Titulo_Obra;
             txtInfoCompleta.Text = $"Nombre: {pintura.Titulo_Obra}\n" +
                                    $"Artista: {pintura.Autor}\n" +
@@ -181,6 +184,7 @@ namespace Gestión_Museo
         // Navegar a la siguiente pintura
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            // Complejidad: O(1), ya que accede directamente al siguiente nodo en la lista.
             if (nodoActual != null && nodoActual.Siguiente != null)
             {
                 nodoActual = nodoActual.Siguiente;
@@ -192,6 +196,7 @@ namespace Gestión_Museo
         // Navegar a la pintura anterior
         private void btnAnterior_Click(object sender, EventArgs e)
         {
+            // Complejidad: O(1), ya que accede directamente al nodo anterior en la lista.
             if (nodoActual != null && nodoActual.Anterior != null)
             {
                 nodoActual = nodoActual.Anterior;
@@ -210,7 +215,14 @@ namespace Gestión_Museo
         // Botón para recargar las pinturas
         private void pbBuscar_Click(object sender, EventArgs e)
         {
+            // Complejidad promedio: O(n + log m), donde n es el número de nodos en la lista y m el tamaño de la base de datos.
+            // La búsqueda en la lista domina si esta es grande.
             CargarPinturas(); // Volver a cargar las pinturas (si es necesario)
+        }
+
+        private void FrmUsuarioFinal_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

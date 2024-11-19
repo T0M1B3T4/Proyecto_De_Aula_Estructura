@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.grpNuevoUsuario = new System.Windows.Forms.GroupBox();
+            this.chkMostrarContrasena = new System.Windows.Forms.CheckBox();
             this.btnConfirmarNuevo = new System.Windows.Forms.Button();
             this.btnCarcelarUsuario = new System.Windows.Forms.Button();
             this.txtConfirmarContrasena = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblContrasena1 = new System.Windows.Forms.Label();
             this.lblUsuario1 = new System.Windows.Forms.Label();
-            this.chkMostrarContrasena = new System.Windows.Forms.CheckBox();
             this.grpNuevoUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,18 +56,34 @@
             this.grpNuevoUsuario.Controls.Add(this.lblContrasena1);
             this.grpNuevoUsuario.Controls.Add(this.lblUsuario1);
             this.grpNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpNuevoUsuario.Location = new System.Drawing.Point(12, 12);
+            this.grpNuevoUsuario.Location = new System.Drawing.Point(16, 15);
+            this.grpNuevoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpNuevoUsuario.Name = "grpNuevoUsuario";
-            this.grpNuevoUsuario.Size = new System.Drawing.Size(426, 391);
+            this.grpNuevoUsuario.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpNuevoUsuario.Size = new System.Drawing.Size(568, 481);
             this.grpNuevoUsuario.TabIndex = 3;
             this.grpNuevoUsuario.TabStop = false;
+            this.grpNuevoUsuario.Enter += new System.EventHandler(this.grpNuevoUsuario_Enter);
+            // 
+            // chkMostrarContrasena
+            // 
+            this.chkMostrarContrasena.AutoSize = true;
+            this.chkMostrarContrasena.Location = new System.Drawing.Point(308, 345);
+            this.chkMostrarContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkMostrarContrasena.Name = "chkMostrarContrasena";
+            this.chkMostrarContrasena.Size = new System.Drawing.Size(173, 21);
+            this.chkMostrarContrasena.TabIndex = 12;
+            this.chkMostrarContrasena.Text = "Mostrar Contraseña";
+            this.chkMostrarContrasena.UseVisualStyleBackColor = true;
+            this.chkMostrarContrasena.CheckedChanged += new System.EventHandler(this.chkMostrarContrasena_CheckedChanged);
             // 
             // btnConfirmarNuevo
             // 
             this.btnConfirmarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmarNuevo.Location = new System.Drawing.Point(231, 317);
+            this.btnConfirmarNuevo.Location = new System.Drawing.Point(308, 390);
+            this.btnConfirmarNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirmarNuevo.Name = "btnConfirmarNuevo";
-            this.btnConfirmarNuevo.Size = new System.Drawing.Size(131, 33);
+            this.btnConfirmarNuevo.Size = new System.Drawing.Size(175, 41);
             this.btnConfirmarNuevo.TabIndex = 11;
             this.btnConfirmarNuevo.Text = "Confirmar";
             this.btnConfirmarNuevo.UseVisualStyleBackColor = true;
@@ -76,9 +92,10 @@
             // btnCarcelarUsuario
             // 
             this.btnCarcelarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarcelarUsuario.Location = new System.Drawing.Point(61, 317);
+            this.btnCarcelarUsuario.Location = new System.Drawing.Point(81, 390);
+            this.btnCarcelarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCarcelarUsuario.Name = "btnCarcelarUsuario";
-            this.btnCarcelarUsuario.Size = new System.Drawing.Size(129, 33);
+            this.btnCarcelarUsuario.Size = new System.Drawing.Size(172, 41);
             this.btnCarcelarUsuario.TabIndex = 10;
             this.btnCarcelarUsuario.Text = "Cancelar";
             this.btnCarcelarUsuario.UseVisualStyleBackColor = true;
@@ -86,34 +103,38 @@
             // 
             // txtConfirmarContrasena
             // 
-            this.txtConfirmarContrasena.Location = new System.Drawing.Point(61, 244);
+            this.txtConfirmarContrasena.Location = new System.Drawing.Point(81, 300);
+            this.txtConfirmarContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
             this.txtConfirmarContrasena.PasswordChar = '*';
-            this.txtConfirmarContrasena.Size = new System.Drawing.Size(301, 20);
+            this.txtConfirmarContrasena.Size = new System.Drawing.Size(400, 23);
             this.txtConfirmarContrasena.TabIndex = 9;
             // 
             // txtContrasenaNueva
             // 
-            this.txtContrasenaNueva.Location = new System.Drawing.Point(61, 157);
+            this.txtContrasenaNueva.Location = new System.Drawing.Point(81, 193);
+            this.txtContrasenaNueva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContrasenaNueva.Name = "txtContrasenaNueva";
             this.txtContrasenaNueva.PasswordChar = '*';
-            this.txtContrasenaNueva.Size = new System.Drawing.Size(301, 20);
+            this.txtContrasenaNueva.Size = new System.Drawing.Size(400, 23);
             this.txtContrasenaNueva.TabIndex = 8;
             // 
             // txtNuevoUsuario
             // 
-            this.txtNuevoUsuario.Location = new System.Drawing.Point(61, 69);
+            this.txtNuevoUsuario.Location = new System.Drawing.Point(81, 85);
+            this.txtNuevoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNuevoUsuario.Name = "txtNuevoUsuario";
-            this.txtNuevoUsuario.Size = new System.Drawing.Size(301, 20);
+            this.txtNuevoUsuario.Size = new System.Drawing.Size(400, 23);
             this.txtNuevoUsuario.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(101, 211);
+            this.label1.Location = new System.Drawing.Point(135, 260);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 30);
+            this.label1.Size = new System.Drawing.Size(286, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Confirmar Contraseña";
             // 
@@ -121,9 +142,10 @@
             // 
             this.lblContrasena1.AutoSize = true;
             this.lblContrasena1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lblContrasena1.Location = new System.Drawing.Point(154, 124);
+            this.lblContrasena1.Location = new System.Drawing.Point(205, 153);
+            this.lblContrasena1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContrasena1.Name = "lblContrasena1";
-            this.lblContrasena1.Size = new System.Drawing.Size(121, 30);
+            this.lblContrasena1.Size = new System.Drawing.Size(156, 37);
             this.lblContrasena1.TabIndex = 3;
             this.lblContrasena1.Text = "Contraseña";
             // 
@@ -131,30 +153,21 @@
             // 
             this.lblUsuario1.AutoSize = true;
             this.lblUsuario1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario1.Location = new System.Drawing.Point(168, 36);
+            this.lblUsuario1.Location = new System.Drawing.Point(224, 44);
+            this.lblUsuario1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario1.Name = "lblUsuario1";
-            this.lblUsuario1.Size = new System.Drawing.Size(86, 30);
+            this.lblUsuario1.Size = new System.Drawing.Size(111, 37);
             this.lblUsuario1.TabIndex = 2;
             this.lblUsuario1.Text = "Usuario";
             // 
-            // chkMostrarContrasena
-            // 
-            this.chkMostrarContrasena.AutoSize = true;
-            this.chkMostrarContrasena.Location = new System.Drawing.Point(231, 280);
-            this.chkMostrarContrasena.Name = "chkMostrarContrasena";
-            this.chkMostrarContrasena.Size = new System.Drawing.Size(136, 17);
-            this.chkMostrarContrasena.TabIndex = 12;
-            this.chkMostrarContrasena.Text = "Mostrar Contraseña";
-            this.chkMostrarContrasena.UseVisualStyleBackColor = true;
-            this.chkMostrarContrasena.CheckedChanged += new System.EventHandler(this.chkMostrarContrasena_CheckedChanged);
-            // 
             // Registro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 411);
+            this.ClientSize = new System.Drawing.Size(601, 506);
             this.Controls.Add(this.grpNuevoUsuario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Registro";
             this.Text = "R E G I S T R O  D E  U S U A R I O";
             this.grpNuevoUsuario.ResumeLayout(false);

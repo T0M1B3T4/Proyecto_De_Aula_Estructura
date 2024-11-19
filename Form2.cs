@@ -19,14 +19,17 @@ namespace Gestión_Museo
         public FrmPersonal()
         {
             InitializeComponent();
-            Pinturas = new LinkedList<Image>();
-            Categorias = new List<Categoria>();
+            Pinturas = new LinkedList<Image>();// O(1)
+            Categorias = new List<Categoria>();// O(1)
         }
 
-        private void FrmPersonal_Load(object sender, EventArgs e) { }
+        private void FrmPersonal_Load(object sender, EventArgs e) { }// O(1)
 
         private void btnAñadir_Pintura_Click(object sender, EventArgs e)
         {
+            // O(1) - Abrir el cuadro de diálogo y cargar la imagen
+            // O(1) - Agregar imagen a la lista enlazada
+            // O(1) - Actualizar la imagen mostrada
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Filter = "Imagenes|*.jpg; *.png; *.jpeg",
@@ -45,6 +48,9 @@ namespace Gestión_Museo
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // O(1) - Validación de campos
+            // O(n) - Convertir la imagen a bytes (donde n es el tamaño de la imagen)
+            // O(1) - Guardar los datos en la base de datos
             try
             {
                 if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtAutor.Text) ||
@@ -71,6 +77,9 @@ namespace Gestión_Museo
         }
         private void GuardarPintura(byte[] imagenBytes)
         {
+            // O(1) - Conexión a la base de datos
+            // O(1) - Crear la consulta SQL
+            // O(1) - Ejecutar el comando de inserción
             try
             {
                 using (SqlConnection Conexion = new SqlConnection(ConnectionString))
@@ -100,6 +109,10 @@ namespace Gestión_Museo
         }
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            // O(1) - Verificar los campos
+            // O(1) - Consultar en la base de datos
+            // O(1) - Leer los resultados de la consulta
+            // O(n) - Convertir la imagen a Image (donde n es el tamaño de la imagen)
             try
             {
                 if (string.IsNullOrWhiteSpace(txtTitulo.Text) && string.IsNullOrWhiteSpace(txtId.Text))
@@ -159,6 +172,9 @@ namespace Gestión_Museo
         }
         private void btnEliminar_Pintura_Click(object sender, EventArgs e)
         {
+            // O(1) - Verificar campos
+            // O(1) - Mostrar mensaje de confirmación
+            // O(1) - Eliminar de la base de datos
             try
             {
                 if (string.IsNullOrWhiteSpace(txtTitulo.Text))
@@ -201,6 +217,7 @@ namespace Gestión_Museo
         }
         private void LimpiarCampos()
         {
+            // O(1) - Limpiar todos los campos
             txtTitulo.Clear();
             txtAutor.Clear();
             txtAno.Clear();
@@ -229,6 +246,11 @@ namespace Gestión_Museo
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+        }
+
+        private void pctImagen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
